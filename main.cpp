@@ -9,6 +9,8 @@ int main() {
     vec.push_back(2);
     vec.push_back(3);
     vec.push_back(4);
+    vec.push_back(6);
+
     for (auto i: vec)
         cout<<i<<"_";
     cout<<endl;
