@@ -1,6 +1,9 @@
 #include "test_1.h"
+#include "mystruct.h"
 #include "stdio.h"
+#include <iostream>
 #include <string>
+
 using namespace std;
 //
 // Created by stardan on 2017/10/8.
@@ -25,3 +28,15 @@ void test_string_copy_on_write() {
 //str1's address: 1d34098
 //str2's address: 1d34098
 //str3's address: 1d34098
+
+void test_my_struct() {
+    mystruct_1 m1;
+    mystruct_1 m2(3, 4);
+
+    {
+        mystruct_1 m3 = m1;
+        m3._y += 100;
+    }
+    cout << "test_my_struct end" << endl;
+
+}
