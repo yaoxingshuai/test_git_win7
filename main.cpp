@@ -34,6 +34,10 @@ int main() {
     test_string_copy_on_write();
     test_my_struct();
 
+    int x=3;
+    x+=1;
+    cout<<"x="<<x<<endl;
+
     return 0;
 }
 
