@@ -5,4 +5,5 @@
 #ifndef CLION_PRO1_TEST_1_H
 #define CLION_PRO1_TEST_1_H
 void test_string_copy_on_write();
+void test_my_struct();
 #endif //CLION_PRO1_TEST_1_H
