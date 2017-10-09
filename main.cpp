@@ -39,7 +39,6 @@ int main() {
     int z=sov.mymax(x, y);
     cout<<"z="<<z<<endl;
 
-
     return 0;
 }
 
