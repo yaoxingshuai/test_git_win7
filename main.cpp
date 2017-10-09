@@ -42,6 +42,8 @@ int main() {
     estimate(3, test_func1);
     estimate(3, test_func2);
 
+    test_new_and_delete();
+
     return 0;
 }
 

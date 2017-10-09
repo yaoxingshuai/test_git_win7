@@ -42,37 +42,41 @@ void test_my_struct() {
 
 }
 
-void test_copy()
-{
-    char *s = "hello, world!";
+void test_copy() {
+    const char *s = "hello, world!";
     char d[20];
-    memset(d, 20, '\0');
+    memset(d, '\0', 20);
     memcpy(d, s, 10);
-    cout<<d<<"___"<<endl;
-    memcpy(d,s,19);
-    cout<<d<<"___"<<endl;
+    cout << d << "___" << endl;
+    memcpy(d, s, 19);
+    cout << d << "___" << endl;
 
-    memset(d,20,'\0');
-    strncpy(d,s,10);
-    cout<<d<<"___"<<endl;
+    memset(d, '\0', 20);
+    strncpy(d, s, 10);
+    cout << d << "___" << endl;
 
-    cout<<s<<endl;
+    cout << s << endl;
 }
 
 
-double test_func1(int x)
-{
-    return x*2;
+double test_func1(int x) {
+    return x * 2;
 }
 
-double test_func2(int x)
-{
-    return x*x;
+double test_func2(int x) {
+    return x * x;
 }
-void estimate(int x, double (*pf)(int))
-{
+
+void estimate(int x, double (*pf)(int)) {
     double result = pf(x);
-    cout<<"result = "<<result<<endl;
+    cout << "result = " << result << endl;
 }
 
 
+void test_new_and_delete() {
+    auto *p = new char[10];
+    memcpy(p, "hello\0", 6);
+    cout << "p = " << p << endl;
+    delete[]p;
+    cout << "delete ok" << endl;
+}
