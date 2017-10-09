@@ -2,6 +2,7 @@
 #include <vector>
 #include <unordered_map>
 #include "test_1.h"
+#include "my_solution.h"
 
 /* 在 settings keymap 中设置
  * format code    ctrl+alt+L
@@ -33,12 +34,13 @@ int main() {
 
     test_string_copy_on_write();
     test_my_struct();
-
-    int x=3;
-    x+=1;
-    cout<<"x="<<x<<endl;
-
     test_copy();
+
+    int x=3, y=6;
+    my_solution sov;
+    int z=sov.mymax(x, y);
+    cout<<"z="<<z<<endl;
+
 
     return 0;
 }
