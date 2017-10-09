@@ -3,6 +3,7 @@
 #include "stdio.h"
 #include <iostream>
 #include <string>
+#include "string.h"
 
 using namespace std;
 //
@@ -39,4 +40,21 @@ void test_my_struct() {
     }
     cout << "test_my_struct end" << endl;
 
+}
+
+void test_copy()
+{
+    char *s = "hello, world!";
+    char d[20];
+    memset(d, 20, '\0');
+    memcpy(d, s, 10);
+    cout<<d<<"___"<<endl;
+    memcpy(d,s,19);
+    cout<<d<<"___"<<endl;
+
+    memset(d,20,'\0');
+    strncpy(d,s,10);
+    cout<<d<<"___"<<endl;
+
+    cout<<s<<endl;
 }

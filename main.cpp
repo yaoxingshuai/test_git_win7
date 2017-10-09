@@ -38,6 +38,8 @@ int main() {
     x+=1;
     cout<<"x="<<x<<endl;
 
+    test_copy();
+
     return 0;
 }
 
