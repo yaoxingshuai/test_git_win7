@@ -58,3 +58,21 @@ void test_copy()
 
     cout<<s<<endl;
 }
+
+
+double test_func1(int x)
+{
+    return x*2;
+}
+
+double test_func2(int x)
+{
+    return x*x;
+}
+void estimate(int x, double (*pf)(int))
+{
+    double result = pf(x);
+    cout<<"result = "<<result<<endl;
+}
+
+

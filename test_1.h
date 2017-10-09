@@ -8,6 +8,9 @@ void test_string_copy_on_write();
 void test_my_struct();
 void test_copy();
 
-
+//test function pointer
+double test_func1(int x);
+double test_func2(int x);
+void estimate(int x, double (*pf)(int));
 
 #endif //CLION_PRO1_TEST_1_H

@@ -39,6 +39,9 @@ int main() {
     int z=sov.mymax(x, y);
     cout<<"z="<<z<<endl;
 
+    estimate(3, test_func1);
+    estimate(3, test_func2);
+
     return 0;
 }
 
