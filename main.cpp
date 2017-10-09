@@ -3,6 +3,7 @@
 #include <unordered_map>
 #include "test_1.h"
 #include "my_solution.h"
+#include "pack1/show.h"
 
 /* 在 settings keymap 中设置
  * format code    ctrl+alt+L
@@ -43,6 +44,12 @@ int main() {
     estimate(3, test_func2);
 
     test_new_and_delete();
+
+    Show_Solution show_sov;
+    show_sov.show_vec(vec);
+    show_sov.show_vec_template(vec);
+    // show_sov.show_vec_template_2(vec);  不知道为什么， 定义和声明都ok，但是调用不可以
+    // show_sov.show_vec_template_2<int>(vec);
 
     return 0;
 }
