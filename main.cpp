@@ -5,6 +5,7 @@
 #include "test_1.h"
 #include "my_solution.h"
 #include "pack1/show.h"
+#include <assert.h>
 
 /* 在 settings keymap 中设置
  * format code    ctrl+alt+L
@@ -60,9 +61,16 @@ int main() {
     //test_show_xiaoshu();
     //test_write_file("./write_file.txt");
     
-    cout << "x=" << x << "\t y=" << y << endl;
-    sov.myswap(x, y);
-    cout << "x=" << x << "\t y=" << y << endl;
+    //cout << "x=" << x << "\t y=" << y << endl;
+    //sov.myswap(x, y);
+    //cout << "x=" << x << "\t y=" << y << endl;
+
+    extern int value1;
+    assert(value1 == 5);
+    ++value1;
+    assert(value1 == 6);
+    test_plus_value();
+    assert(value1 == 7);
 
     getchar();
     return 0;
