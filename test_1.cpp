@@ -6,8 +6,9 @@
 #include "string.h"
 #include <climits>
 #include <fstream>
-#include <direct.h>
 #include <assert.h>
+// #include <direct.h>  // this can be only used in windows, and use _getcwd
+#include <unistd.h>  // this is used for linux, also use getcwd
 
 using namespace std;
 //
@@ -164,8 +165,9 @@ void test_write_file(const char *s) {
     outfile.close();
 
     char buffer[50];
-    _getcwd(buffer, 50);
-    cout << "directory = " << buffer << endl;
+    //_getcwd(buffer, 50);
+    //getcwd(buffer, 50);
+    //cout << "directory = " << buffer << endl;
 }
 
 
