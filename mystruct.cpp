@@ -19,7 +19,7 @@ mystruct_1 mystruct_1::operator+(const mystruct_1 &ms2) const
     ms._x = this->_x + ms2._x;
     ms._y = this->_y + ms2._y;
     ms._pz = this->_pz + ms2._pz;
-    return ms;  
+    return ms;
     //这里会立即调用mystruct_1的析构函数
     //星哥的理解：这是一个局部临时变量，返回后相当于调用了赋值函数，然后就析构了
 }

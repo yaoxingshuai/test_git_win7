@@ -13,7 +13,7 @@ private:
 public:
     int _x, _y;
     mystruct_1() { _x = 1; _y = 2; _pz = 3; };
-    mystruct_1(int x, int y, int pz=0): _x(x), _y(y), _pz(pz){}
+    mystruct_1(int x, int y, int pz = 0) : _x(x), _y(y), _pz(pz) {}
     ~mystruct_1();
 
     mystruct_1 operator+(const mystruct_1 &) const;

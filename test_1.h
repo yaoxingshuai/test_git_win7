@@ -13,7 +13,7 @@ void test_copy();
 //test function pointer
 double test_func1(int x);
 double test_func2(int x);
-void estimate(int x, double (*pf)(int));
+void estimate(int x, double(*pf)(int));
 
 //test new and delete
 void test_new_and_delete();

@@ -14,7 +14,7 @@ public:
     template <class T>
     void show_vec_template(const std::vector<T> &vec)
     {
-        for (const auto x:vec)
+        for (const auto x : vec)
             std::cout << x << "_";
         std::cout << std::endl;
     }

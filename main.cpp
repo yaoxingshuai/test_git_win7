@@ -12,6 +12,12 @@
  * 多行注释 ctrl+/
  */
 
+ /*
+ 上面是clion的设置
+ 这是vs的设置
+ 选中   ALT+F8
+ */
+
 using namespace std;
 
 
@@ -22,7 +28,7 @@ int main() {
     vec.push_back(2);
     vec.push_back(3);
 
-    for (auto i: vec)
+    for (auto i : vec)
         cout << i << "_";
     cout << endl;
 
@@ -37,10 +43,10 @@ int main() {
     test_my_struct();
     test_copy();
 
-    int x=3, y=6;
+    int x = 3, y = 6;
     my_solution sov;
-    int z=sov.mymax(x, y);
-    cout<<"z="<<z<<endl;
+    int z = sov.mymax(x, y);
+    cout << "z=" << z << endl;
 
     estimate(3, test_func1);
     estimate(3, test_func2);
@@ -52,7 +58,7 @@ int main() {
     show_sov.show_vec_template(vec);
     // show_sov.show_vec_template_2(vec);  不知道为什么， 定义和声明都ok，但是调用不可以
     // show_sov.show_vec_template_2<int>(vec);
-    
+
     //test_all_limits();
     //test_union();
     //test_ios_show();
@@ -60,7 +66,7 @@ int main() {
 
     //test_show_xiaoshu();
     //test_write_file("./write_file.txt");
-    
+
     //cout << "x=" << x << "\t y=" << y << endl;
     //sov.myswap(x, y);
     //cout << "x=" << x << "\t y=" << y << endl;
