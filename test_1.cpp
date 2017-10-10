@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include "string.h"
+#include <climits>
 
 using namespace std;
 //
@@ -80,4 +81,15 @@ void test_new_and_delete() {
     cout << "p = " << p << endl;
     delete[]p;
     cout << "delete ok" << endl;
+}
+
+
+void test_all_limits() {
+    cout << "char bit:" << CHAR_BIT << endl;
+    cout << "char max:" << CHAR_MAX << endl;
+    cout << "signed char max" << SCHAR_MAX << endl;
+    cout << "unsigned char max" << UCHAR_MAX << endl;
+    cout << "int max" << INT_MAX << endl;
+    cout << "int min" << INT_MIN << endl;
+    cout << "uint max" << UINT_MAX << endl;
 }

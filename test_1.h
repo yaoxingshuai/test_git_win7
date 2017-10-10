@@ -16,4 +16,7 @@ void estimate(int x, double (*pf)(int));
 //test new and delete
 void test_new_and_delete();
 
+//test climits
+void test_all_limits();
+
 #endif //CLION_PRO1_TEST_1_H

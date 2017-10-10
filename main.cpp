@@ -52,6 +52,8 @@ int main() {
     // show_sov.show_vec_template_2(vec);  不知道为什么， 定义和声明都ok，但是调用不可以
     // show_sov.show_vec_template_2<int>(vec);
     
+    test_all_limits();
+
     getchar();
     return 0;
 }
