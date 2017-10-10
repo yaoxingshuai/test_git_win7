@@ -58,7 +58,12 @@ int main() {
     //test_input_values();
 
     //test_show_xiaoshu();
-    test_write_file("./write_file.txt");
+    //test_write_file("./write_file.txt");
+    
+    cout << "x=" << x << "\t y=" << y << endl;
+    sov.myswap(x, y);
+    cout << "x=" << x << "\t y=" << y << endl;
+
     getchar();
     return 0;
 }

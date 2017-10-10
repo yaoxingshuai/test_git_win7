@@ -13,6 +13,15 @@ public:
     {
         return a>b?a:b;
     }
+
+    template <class T>
+    inline void myswap(T&a, T&b)
+    {
+        T tmp;
+        tmp = a;
+        a = b;
+        b = tmp;
+    }
 };
 
 
