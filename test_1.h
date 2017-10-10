@@ -28,5 +28,7 @@ void test_input_values();
 
 void test_show_xiaoshu();
 
+void test_write_file(const char *s);
+
 
 #endif //CLION_PRO1_TEST_1_H

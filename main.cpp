@@ -57,8 +57,8 @@ int main() {
     //test_ios_show();
     //test_input_values();
 
-    test_show_xiaoshu();
-
+    //test_show_xiaoshu();
+    test_write_file("./write_file.txt");
     getchar();
     return 0;
 }

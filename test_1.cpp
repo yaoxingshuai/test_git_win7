@@ -5,6 +5,8 @@
 #include <string>
 #include "string.h"
 #include <climits>
+#include <fstream>
+#include <direct.h>
 
 using namespace std;
 //
@@ -150,8 +152,19 @@ void test_show_xiaoshu() {
     cout.unsetf(ios::fixed);
     cout.precision(9);
     cout << dd << endl;
-
 }
 
+void test_write_file(const char *s) {
+    ofstream outfile;
+    outfile.open(s, ios::app);
+    for (int i = 0; i < 10; ++i)
+        outfile << "_" << i;
+    outfile << endl;
+    outfile.close();
+
+    char buffer[50];
+    _getcwd(buffer, 50);
+    cout << "directory = " << buffer << endl;
+}
 
 
