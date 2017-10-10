@@ -21,4 +21,9 @@ void test_all_limits();
 
 void test_union();
 
+//”√true flaseœ‘ æbool÷µ
+void test_ios_show();
+
+void test_input_values();
+
 #endif //CLION_PRO1_TEST_1_H

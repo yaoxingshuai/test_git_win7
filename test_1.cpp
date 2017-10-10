@@ -102,3 +102,36 @@ void test_union() {
     cout << "uidstr = " << ms2._u._uidstr << endl;
     cout << "uidstr to uid may be wrong, uid = " << ms2._u._uid << endl;
 }
+
+void test_ios_show() {
+    bool flag = true;
+    cout << "flag = " << flag << "\t ~flag = " << ~flag << endl;
+    cout.setf(ios_base::boolalpha);
+    cout << "flag = " << flag << "\t ~flag = " << !flag << endl;
+    cout << "flag = " << flag << "\t ~flag = " << !flag << 1<<0<< endl;
+    cout << "1<2:" << (1 < 2) << "\t 1>2:" << (1 > 2) << endl;
+    cout.unsetf(ios_base::boolalpha);
+    cout << "flag = " << flag << "\t ~flag = " << !flag << endl;
+    cout << "1<2:" << (1 < 2) << "\t 1>2:" << (1 > 2) << endl;
+    // ps: 注意了， flag=true， 但是 ~flag==-2, !flag 才是 false
+    // 虽然设置了boolalpha，但是如果不是布尔值，依然显示1，0
+}
+
+void test_input_values()
+{
+    int arr[5];
+    for (int i = 0; i < sizeof(arr)/sizeof(int); ++i)
+    {
+        cout << "input a number:" << flush;
+        while (!(cin >> arr[i])) {
+            cin.clear();
+            while (cin.get() != '\n')
+                cout << "get one char" << endl;
+            cout << "input a number:" << flush;     
+        }
+    }
+    while (cin.get() != '\n');
+    for (const auto x : arr)
+        cout << x << "_";
+    cout << endl;
+}
