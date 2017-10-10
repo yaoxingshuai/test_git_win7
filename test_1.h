@@ -34,4 +34,12 @@ void test_write_file(const char *s);
 
 void test_plus_value();
 
+
+//测试友元函数访问私有变量pz，重载运算符
+void test_friend_and_operator();
+
+
+
+
+
 #endif //CLION_PRO1_TEST_1_H

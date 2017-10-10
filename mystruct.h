@@ -5,13 +5,22 @@
 #ifndef CLION_PRO1_MYSTRUCT_H
 #define CLION_PRO1_MYSTRUCT_H
 
+#include <ostream>
 
 class mystruct_1 {
+private:
+    int _pz;
 public:
     int _x, _y;
-    mystruct_1(){_x=1; _y=2;};
-    mystruct_1(int x, int y): _x(x), _y(y){}
+    mystruct_1() { _x = 1; _y = 2; _pz = 3; };
+    mystruct_1(int x, int y, int pz=0): _x(x), _y(y), _pz(pz){}
     ~mystruct_1();
+
+    mystruct_1 operator+(const mystruct_1 &) const;
+    friend mystruct_1 operator*(int, mystruct_1 &);
+    friend std::ostream& operator<<(std::ostream &os, const mystruct_1 &);
+    //ps: 不知道为什么，声明友元的时候，这个std::需要加上
+    //否则在cpp里面就不是这个ostream了。。。
 };
 
 class mystruct_2 {

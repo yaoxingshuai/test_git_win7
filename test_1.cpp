@@ -7,6 +7,7 @@
 #include <climits>
 #include <fstream>
 #include <direct.h>
+#include <assert.h>
 
 using namespace std;
 //
@@ -169,8 +170,22 @@ void test_write_file(const char *s) {
 
 
 int value1 = 5;
-
 void test_plus_value() {
     ++value1;
     cout << "value1 plus ok, now value1=" << value1 << endl;
+}
+
+void test_friend_and_operator()
+{
+    mystruct_1 ms1{ 1,2,3 };
+    mystruct_1 ms2{ 5,6,7 };
+    cout <<"ms1 and ms2 : "<< ms1 << ms2 << endl;
+    mystruct_1 ms = ms1 + ms2;  //用了一次析构函数
+    assert(ms._x == 6); assert(ms._y == 8);
+    cout << "add ------- ms = " << ms;
+    
+    ms = 5 * ms;   //这里会用两次析构函数
+    cout<< "plus ------- ms = " << ms;
+    assert(ms._x == 30); assert(ms._y == 40);
+
 }

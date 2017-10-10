@@ -72,6 +72,8 @@ int main() {
     test_plus_value();
     assert(value1 == 7);
 
+    test_friend_and_operator();
+
     getchar();
     return 0;
 }
