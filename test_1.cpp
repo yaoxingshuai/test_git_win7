@@ -170,3 +170,9 @@ void test_write_file(const char *s) {
 }
 
 
+int value1 = 5;
+
+void test_plus_value() {
+    ++value1;
+    cout << "value1 plus ok, now value1=" << value1 << endl;
+}

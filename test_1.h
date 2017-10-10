@@ -4,6 +4,8 @@
 
 #ifndef CLION_PRO1_TEST_1_H
 #define CLION_PRO1_TEST_1_H
+
+
 void test_string_copy_on_write();
 void test_my_struct();
 void test_copy();
@@ -30,5 +32,6 @@ void test_show_xiaoshu();
 
 void test_write_file(const char *s);
 
+void test_plus_value();
 
 #endif //CLION_PRO1_TEST_1_H
