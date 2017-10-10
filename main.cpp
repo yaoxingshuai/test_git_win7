@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <unordered_map>
+#include <string>
 #include "test_1.h"
 #include "my_solution.h"
 #include "pack1/show.h"
@@ -25,8 +26,8 @@ int main() {
     cout << endl;
 
     unordered_map<int, string> map1;
-    map1[1] = "hello";
-    map1[2] = "world";
+    map1[1] = string("hello");
+    map1[2] = string("world");
 
     for (auto iter = map1.begin(); iter != map1.end(); ++iter)
         cout << iter->first << "_" << iter->second << endl;
@@ -50,7 +51,8 @@ int main() {
     show_sov.show_vec_template(vec);
     // show_sov.show_vec_template_2(vec);  不知道为什么， 定义和声明都ok，但是调用不可以
     // show_sov.show_vec_template_2<int>(vec);
-
+    
+    getchar();
     return 0;
 }
 

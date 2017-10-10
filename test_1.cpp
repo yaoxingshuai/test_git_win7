@@ -52,7 +52,8 @@ void test_copy() {
     cout << d << "___" << endl;
 
     memset(d, '\0', 20);
-    strncpy(d, s, 10);
+    // strncpy(d, s, 10);
+    strncpy_s(d, s, 10);
     cout << d << "___" << endl;
 
     cout << s << endl;
