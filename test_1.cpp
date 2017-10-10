@@ -8,7 +8,7 @@
 #include <fstream>
 #include <assert.h>
 // #include <direct.h>  // this can be only used in windows, and use _getcwd
-#include <unistd.h>  // this is used for linux, also use getcwd
+// #include <unistd.h>  // this is used for linux, also use getcwd
 
 using namespace std;
 //
@@ -189,5 +189,9 @@ void test_friend_and_operator()
     ms = 5 * ms;   //这里会用两次析构函数
     cout<< "plus ------- ms = " << ms;
     assert(ms._x == 30); assert(ms._y == 40);
+
+    ms = -ms;
+    cout << " -ms = " << ms;
+    assert(ms._x == -30); assert(ms._y == -40);
 
 }

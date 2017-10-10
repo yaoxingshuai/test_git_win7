@@ -21,6 +21,7 @@ public:
     friend std::ostream& operator<<(std::ostream &os, const mystruct_1 &);
     //ps: 不知道为什么，声明友元的时候，这个std::需要加上
     //否则在cpp里面就不是这个ostream了。。。
+    mystruct_1 operator-() const { return mystruct_1(-_x, -_y, _pz); }
 };
 
 class mystruct_2 {
