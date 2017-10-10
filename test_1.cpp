@@ -130,8 +130,28 @@ void test_input_values()
             cout << "input a number:" << flush;     
         }
     }
+    //ps :如果输入 12a， 12会成功放入arr，但是'a'会留在输入队列，下次读取失败
+    //如果输入 a12， 会把'a', '1', '2'都cin.get()吸收掉
     while (cin.get() != '\n');
     for (const auto x : arr)
         cout << x << "_";
     cout << endl;
+    
 }
+
+void test_show_xiaoshu() {
+    double dd = 123.42312;
+    cout << dd << endl;  // 123.423, 默认保留 6 位有效数字
+    cout.precision(2);
+    cout << dd << endl;  // 1.2e+02  保留 2 位有效数字
+    cout.setf(ios::fixed);
+    cout << dd << endl;   // 123.42  表示保留小数点后面的 2 位数字
+
+    cout.unsetf(ios::fixed);
+    cout.precision(9);
+    cout << dd << endl;
+
+}
+
+
+

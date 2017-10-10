@@ -55,7 +55,9 @@ int main() {
     //test_all_limits();
     //test_union();
     //test_ios_show();
-    test_input_values();
+    //test_input_values();
+
+    test_show_xiaoshu();
 
     getchar();
     return 0;

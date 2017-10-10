@@ -26,4 +26,7 @@ void test_ios_show();
 
 void test_input_values();
 
+void test_show_xiaoshu();
+
+
 #endif //CLION_PRO1_TEST_1_H
