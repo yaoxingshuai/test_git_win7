@@ -19,4 +19,6 @@ void test_new_and_delete();
 //test climits
 void test_all_limits();
 
+void test_union();
+
 #endif //CLION_PRO1_TEST_1_H

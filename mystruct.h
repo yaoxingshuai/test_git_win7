@@ -14,5 +14,14 @@ public:
     ~mystruct_1();
 };
 
+class mystruct_2 {
+public:
+    int _x, _y;
+    union myunion
+    {
+        int _uid;
+        char _uidstr[4];
+    }_u;
+};
 
 #endif //CLION_PRO1_MYSTRUCT_H

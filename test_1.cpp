@@ -53,8 +53,7 @@ void test_copy() {
     cout << d << "___" << endl;
 
     memset(d, '\0', 20);
-    // strncpy(d, s, 10);
-    strncpy_s(d, s, 10);
+    strncpy(d, s, 10);
     cout << d << "___" << endl;
 
     cout << s << endl;
@@ -92,4 +91,14 @@ void test_all_limits() {
     cout << "int max" << INT_MAX << endl;
     cout << "int min" << INT_MIN << endl;
     cout << "uint max" << UINT_MAX << endl;
+}
+
+void test_union() {
+    mystruct_2 ms2;
+    ms2._u._uid = 12;
+    cout << "uid = " << ms2._u._uid << endl;
+    strncpy(ms2._u._uidstr, "abc", 4);
+    //strcpy(ms2._u._uidstr, "abc");
+    cout << "uidstr = " << ms2._u._uidstr << endl;
+    cout << "uidstr to uid may be wrong, uid = " << ms2._u._uid << endl;
 }

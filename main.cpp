@@ -53,6 +53,7 @@ int main() {
     // show_sov.show_vec_template_2<int>(vec);
     
     test_all_limits();
+    test_union();
 
     getchar();
     return 0;
