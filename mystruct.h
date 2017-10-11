@@ -19,8 +19,8 @@ public:
     mystruct_1 operator+(const mystruct_1 &) const;
     friend mystruct_1 operator*(int, mystruct_1 &);
     friend std::ostream& operator<<(std::ostream &os, const mystruct_1 &);
-    //ps: ²»ÖªµÀÎªÊ²Ã´£¬ÉùÃ÷ÓÑÔªµÄÊ±ºò£¬Õâ¸östd::ÐèÒª¼ÓÉÏ
-    //·ñÔòÔÚcppÀïÃæ¾Í²»ÊÇÕâ¸öostreamÁË¡£¡£¡£
+    //ps: ä¸çŸ¥é“ä¸ºä»€ä¹ˆï¼Œå£°æ˜Žå‹å…ƒçš„æ—¶å€™ï¼Œè¿™ä¸ªstd::éœ€è¦åŠ ä¸Š
+    //å¦åˆ™åœ¨cppé‡Œé¢å°±ä¸æ˜¯è¿™ä¸ªostreamäº†ã€‚ã€‚ã€‚
     mystruct_1 operator-() const { return mystruct_1(-_x, -_y, _pz); }
 };
 

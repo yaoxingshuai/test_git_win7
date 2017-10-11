@@ -20,8 +20,8 @@ mystruct_1 mystruct_1::operator+(const mystruct_1 &ms2) const
     ms._y = this->_y + ms2._y;
     ms._pz = this->_pz + ms2._pz;
     return ms;
-    //ÕâÀï»áÁ¢¼´µ÷ÓÃmystruct_1µÄÎö¹¹º¯Êı
-    //ĞÇ¸çµÄÀí½â£ºÕâÊÇÒ»¸ö¾Ö²¿ÁÙÊ±±äÁ¿£¬·µ»ØºóÏàµ±ÓÚµ÷ÓÃÁË¸³Öµº¯Êı£¬È»ºó¾ÍÎö¹¹ÁË
+    //è¿™é‡Œä¼šç«‹å³è°ƒç”¨mystruct_1çš„ææ„å‡½æ•°
+    //æ˜Ÿå“¥çš„ç†è§£ï¼šè¿™æ˜¯ä¸€ä¸ªå±€éƒ¨ä¸´æ—¶å˜é‡ï¼Œè¿”å›åç›¸å½“äºè°ƒç”¨äº†èµ‹å€¼å‡½æ•°ï¼Œç„¶åå°±ææ„äº†
 }
 
 mystruct_1 operator*(int m, mystruct_1 &ms)
@@ -31,7 +31,7 @@ mystruct_1 operator*(int m, mystruct_1 &ms)
     ret._y = ms._y * m;
     ret._pz = ms._pz * m;
     return ret;
-    //ÕâÀïÒ²»áµ÷ÓÃÎö¹¹º¯Êı
+    //è¿™é‡Œä¹Ÿä¼šè°ƒç”¨ææ„å‡½æ•°
 }
 
 
@@ -40,6 +40,6 @@ ostream & operator<<(ostream & os, const mystruct_1& ms)
     os << "ms.x = " << ms._x << '\t';
     os << "ms.y = " << ms._y << '\t';
     os << "ms.pz = " << ms._pz << endl;
-    // TODO: ÔÚ´Ë´¦²åÈë return Óï¾ä
+    // TODO: åœ¨æ­¤å¤„æ’å…¥ return è¯­å¥
     return os;
 }

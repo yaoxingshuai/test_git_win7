@@ -23,7 +23,7 @@ void test_all_limits();
 
 void test_union();
 
-//ÓÃtrue flaseÏÔÊ¾boolÖµ
+//ç”¨true flaseæ˜¾ç¤ºboolå€¼
 void test_ios_show();
 
 void test_input_values();
@@ -35,7 +35,7 @@ void test_write_file(const char *s);
 void test_plus_value();
 
 
-//²âÊÔÓÑÔªº¯Êı·ÃÎÊË½ÓĞ±äÁ¿pz£¬ÖØÔØÔËËã·û
+//æµ‹è¯•å‹å…ƒå‡½æ•°è®¿é—®ç§æœ‰å˜é‡pzï¼Œé‡è½½è¿ç®—ç¬¦
 void test_friend_and_operator();
 
 
