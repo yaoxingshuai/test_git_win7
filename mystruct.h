@@ -6,6 +6,7 @@
 #define CLION_PRO1_MYSTRUCT_H
 
 #include <ostream>
+#include <string>
 
 class mystruct_1 {
 private:
@@ -32,6 +33,7 @@ public:
         int _uid;
         char _uidstr[4];
     }_u;
+    friend std::ostream& operator<<(std::ostream &os, const mystruct_2 &);
 };
 
 #endif //CLION_PRO1_MYSTRUCT_H

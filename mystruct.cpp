@@ -40,6 +40,13 @@ ostream & operator<<(ostream & os, const mystruct_1& ms)
     os << "ms.x = " << ms._x << '\t';
     os << "ms.y = " << ms._y << '\t';
     os << "ms.pz = " << ms._pz << endl;
-    // TODO: 在此处插入 return 语句
+    return os;
+}
+
+ostream& operator<<(ostream &os, const mystruct_2 &ms)
+{
+    os<<"ms.x: "<<ms._x<<'\t';
+    os<<"ms.y: "<<ms._y<<'\t';
+    os<<"ms.uid: "<<ms._u._uid<<endl;
     return os;
 }

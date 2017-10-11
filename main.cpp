@@ -5,18 +5,20 @@
 #include "test_1.h"
 #include "my_solution.h"
 #include "pack1/show.h"
-#include <assert.h>
+#include <cassert>
+#include <deque>
+#include <bitset>
 
 /* 在 settings keymap 中设置
- * format code    ctrl+alt+L
+ * format code    ctrl+alt+L  (win)         alt+command+L (mac)
  * 多行注释 ctrl+/
  */
 
- /*
- 上面是clion的设置
- 这是vs的设置
- 选中   ALT+F8
- */
+/*
+上面是clion的设置
+这是vs的设置
+选中   ALT+F8
+*/
 
 using namespace std;
 
@@ -80,7 +82,16 @@ int main() {
 
     test_friend_and_operator();
 
-    getchar();
+//    deque<int> mydeq(3, 1);
+//    cout << "my deque size=" << mydeq.size() << "\t capacity=" << mydeq.max_size() << endl;
+//    bitset<16> bs(0xf);
+//    cout << "bs=" << bs << endl;
+//    long bs_long = bs.to_ulong();
+//    cout<<"bs long="<<bs_long<<endl;
+
+//    test_cout_struct();
+
+    //getchar();
     return 0;
 }
 

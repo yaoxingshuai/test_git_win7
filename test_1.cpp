@@ -195,3 +195,12 @@ void test_friend_and_operator()
     assert(ms._x == -30); assert(ms._y == -40);
 
 }
+
+
+void test_cout_struct()
+{
+    mystruct_1 ms1;
+    mystruct_2 ms2;
+    cout<<"ms1 = "<<ms1<<endl;
+    cout<<"ms2 = "<<ms2<<endl;
+}
