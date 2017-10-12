@@ -40,6 +40,9 @@ int main() {
 
     for (auto iter = map1.begin(); iter != map1.end(); ++iter)
         cout << iter->first << "_" << iter->second << endl;
+    cout<<"------use range instead of for loop-----"<<endl;
+    for(auto iter : map1)
+        cout<<iter.first<<"_"<<iter.second<<endl;
 
     test_string_copy_on_write();
     test_my_struct();
@@ -73,14 +76,15 @@ int main() {
     //sov.myswap(x, y);
     //cout << "x=" << x << "\t y=" << y << endl;
 
+/*
     extern int value1;
     assert(value1 == 5);
     ++value1;
     assert(value1 == 6);
     test_plus_value();
     assert(value1 == 7);
-
-    test_friend_and_operator();
+*/
+    //test_friend_and_operator();
 
 //    deque<int> mydeq(3, 1);
 //    cout << "my deque size=" << mydeq.size() << "\t capacity=" << mydeq.max_size() << endl;
@@ -90,9 +94,9 @@ int main() {
 //    cout<<"bs long="<<bs_long<<endl;
 
 //    test_cout_struct();
-    test_mystring();
-    test_string();
-
+//    test_mystring();
+//    test_string();
+    test_priority_queue();
     //getchar();
     return 0;
 }

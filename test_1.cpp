@@ -9,6 +9,7 @@
 #include <cassert>
 #include "pack1/mystring.h"
 #include <queue>
+#include <random>
 // #include <direct.h>  // this can be only used in windows, and use _getcwd
 // #include <unistd.h>  // this is used for linux, also use getcwd
 
@@ -243,4 +244,32 @@ void test_string()
 void test_priority_queue()
 {
     priority_queue<int> pque;  // 默认会创建大顶堆
+    priority_queue<int, vector<int>, greater<int>> litque; // 小顶堆
+
+    std::default_random_engine generator;
+    std::uniform_int_distribution<int> dis(0,100);
+    std::normal_distribution<float> dis2(0, 10);  //应该是 均值0， 方差10  的正态分布
+//    随机数由生成器和分布器结合产生
+//    生成器generator：能够产生离散的等可能分布数值
+//    分布器distributions: 能够把generator产生的均匀分布值映射到其他常见分布，如
+//    均匀分布uniform，正态分布normal，二项分布binomial，泊松分布poisson
+
+    for(int i=0;i<10;++i)
+    {
+        int tmp=dis(generator);
+        pque.push(tmp);
+        litque.push(tmp);
+    }
+
+    while(!pque.empty())
+    {
+        cout<<"_"<<pque.top();
+        pque.pop();
+    }cout<<endl;
+
+    while(!litque.empty())
+    {
+        cout<<"_"<<litque.top();
+        litque.pop();
+    }cout<<endl;
 }
