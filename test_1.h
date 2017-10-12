@@ -40,6 +40,7 @@ void test_friend_and_operator();
 
 void test_cout_struct();
 
+void test_mystring();
 
 
 #endif //CLION_PRO1_TEST_1_H

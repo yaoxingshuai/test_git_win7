@@ -7,6 +7,7 @@
 #include <climits>
 #include <fstream>
 #include <assert.h>
+#include "pack1/mystring.h"
 // #include <direct.h>  // this can be only used in windows, and use _getcwd
 // #include <unistd.h>  // this is used for linux, also use getcwd
 
@@ -203,4 +204,20 @@ void test_cout_struct()
     mystruct_2 ms2;
     cout<<"ms1 = "<<ms1<<endl;
     cout<<"ms2 = "<<ms2<<endl;
+}
+
+void test_mystring()
+{
+    Mystring ms2("hello");  //+++++++ gouzao from char*
+    Mystring ms1(ms2);//+++++++ copy gouzao from mystring&
+    char a=ms2[1];//+++++++ char []
+    const char b=ms1[1];//+++++++ char []
+    const char &c=ms1[1];//+++++++ char []
+
+    const Mystring ms3(ms1);//+++++++ copy gouzao from mystring&
+    char d=ms3[1];//+++++++ const char[]
+    const char &e=ms3[1];//+++++++ const char[]
+
+    assert(a==b);
+    //xigou ms3,ms1,ms2
 }
