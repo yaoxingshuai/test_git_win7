@@ -35,6 +35,11 @@ public:
 
     friend bool operator<(const Mystring &s1, const Mystring &s2);
 
+//    bool operator< ( const Mystring &s2) const
+//    {
+//        return strcmp(this->str, s2.str) < 0;
+//    }
+
     friend bool operator>(const Mystring &s1, const Mystring &s2);
 
     friend bool operator==(const Mystring &s1, const Mystring &s2);

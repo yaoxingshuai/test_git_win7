@@ -272,4 +272,48 @@ void test_priority_queue()
         cout<<"_"<<litque.top();
         litque.pop();
     }cout<<endl;
+
+    //下面测试结构体的优先队列，需要结构体实现了 < 符号
+    vector<Mystring> mstrs = {"hello", "world", "ipad"};
+    //Mystring mstrs[] = {"hello", "world", "ipad"};
+    cout<<"___________"<<endl;
+    priority_queue<Mystring> strque;
+    for(const auto &s: mstrs)
+    {
+        strque.push(s);
+        //cout<<"s="<<s<<endl;
+    }
+
+    while(!strque.empty())   // 弹出顺序 world, ipad, hello 也是大顶堆
+    {
+        cout<<strque.top()<<"+++++"<<endl;
+        strque.pop();
+    }
+
+    //测试结构体的小顶堆
+    cout<<"___________"<<endl;
+    priority_queue<Mystring, vector<Mystring>, greater<Mystring>> lit_strque;
+    //使用重载的 > 符号，创建小顶堆
+    //弹出顺序 hello, ipad, world
+    for(const auto &s: mstrs)
+        lit_strque.push(s);
+    while(!lit_strque.empty())
+    {
+        cout<<lit_strque.top()<<"_________"<<endl;
+        lit_strque.pop();
+    }
+    /*   可以看到，在使用的时候，会多次调用 拷贝构造函数，赋值函数，析构函数 。。。
+    hello_________
+    +++++++ copy gouzao from mystring&
+    +++++++ fuzhi from mystring&
+    +++++++ fuzhi from mystring&
+    +++++++ xigou
+            +++++++ xigou
+    ipad_________
+    +++++++ copy gouzao from mystring&
+    +++++++ fuzhi from mystring&
+    +++++++ fuzhi from mystring&
+     ...
+     */
+
 }
