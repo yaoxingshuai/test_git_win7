@@ -3,11 +3,12 @@
 #include "stdio.h"
 #include <iostream>
 #include <string>
-#include "string.h"
+#include <cstring>
 #include <climits>
 #include <fstream>
-#include <assert.h>
+#include <cassert>
 #include "pack1/mystring.h"
+#include <queue>
 // #include <direct.h>  // this can be only used in windows, and use _getcwd
 // #include <unistd.h>  // this is used for linux, also use getcwd
 
@@ -220,4 +221,26 @@ void test_mystring()
 
     assert(a==b);
     //xigou ms3,ms1,ms2
+}
+
+void test_string()
+{
+    string s="hello, world";
+    string s1=s.substr(0, -1);  assert(s1==s);
+    string s2=s.substr(0, -2);  assert(s2==s1);
+    string s3=s.substr(0, 3);   assert(s3=="hel");
+    string s4=s.substr(3, 3);   assert(s4=="lo,");
+
+    size_t index = s.find_first_of('o', 6); //从s[6]开始找'o'；
+    assert(8==index);
+
+    index = s.find_first_of("rd", 0);   // 找 rd 中任何一个出现的地方， 从index=0开始找
+    assert(9==index);
+
+    cout<<"test string ok"<<endl;
+}
+
+void test_priority_queue()
+{
+    priority_queue<int> pque;  // 默认会创建大顶堆
 }

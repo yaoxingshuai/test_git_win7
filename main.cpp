@@ -91,6 +91,8 @@ int main() {
 
 //    test_cout_struct();
     test_mystring();
+    test_string();
+
     //getchar();
     return 0;
 }

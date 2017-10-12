@@ -42,5 +42,9 @@ void test_cout_struct();
 
 void test_mystring();
 
+void test_string();
+
+void test_priority_queue();
+
 
 #endif //CLION_PRO1_TEST_1_H
