@@ -14,8 +14,7 @@ void Show_Solution::show_vec_template_2(const vector<T> &vec) {
     cout << endl;
 }
 
-void Show_Solution::show_vec(const vector<int> &vec)
-{
+void Show_Solution::show_vec(const vector<int> &vec) {
     for (const auto x : vec)
         cout << x << endl;
     cout << "show vector ok" << endl;

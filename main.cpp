@@ -40,9 +40,9 @@ int main() {
 
     for (auto iter = map1.begin(); iter != map1.end(); ++iter)
         cout << iter->first << "_" << iter->second << endl;
-    cout<<"------use range instead of for loop-----"<<endl;
-    for(auto iter : map1)
-        cout<<iter.first<<"_"<<iter.second<<endl;
+    cout << "------use range instead of for loop-----" << endl;
+    for (auto iter : map1)
+        cout << iter.first << "_" << iter.second << endl;
 
     test_string_copy_on_write();
     test_my_struct();

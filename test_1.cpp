@@ -125,11 +125,9 @@ void test_ios_show() {
     // 虽然设置了boolalpha，但是如果不是布尔值，依然显示1，0
 }
 
-void test_input_values()
-{
+void test_input_values() {
     int arr[5];
-    for (int i = 0; i < sizeof(arr) / sizeof(int); ++i)
-    {
+    for (int i = 0; i < sizeof(arr) / sizeof(int); ++i) {
         cout << "input a number:" << flush;
         while (!(cin >> arr[i])) {
             cin.clear();
@@ -176,131 +174,131 @@ void test_write_file(const char *s) {
 
 
 int value1 = 5;
+
 void test_plus_value() {
     ++value1;
     cout << "value1 plus ok, now value1=" << value1 << endl;
 }
 
-void test_friend_and_operator()
-{
-    mystruct_1 ms1{ 1,2,3 };
-    mystruct_1 ms2{ 5,6,7 };
+void test_friend_and_operator() {
+    mystruct_1 ms1{1, 2, 3};
+    mystruct_1 ms2{5, 6, 7};
     cout << "ms1 and ms2 : " << ms1 << ms2 << endl;
     mystruct_1 ms = ms1 + ms2;  //用了一次析构函数
-    assert(ms._x == 6); assert(ms._y == 8);
+    assert(ms._x == 6);
+    assert(ms._y == 8);
     cout << "add ------- ms = " << ms;
 
     ms = 5 * ms;   //这里会用两次析构函数
     cout << "plus ------- ms = " << ms;
-    assert(ms._x == 30); assert(ms._y == 40);
+    assert(ms._x == 30);
+    assert(ms._y == 40);
 
     ms = -ms;
     cout << " -ms = " << ms;
-    assert(ms._x == -30); assert(ms._y == -40);
+    assert(ms._x == -30);
+    assert(ms._y == -40);
 
 }
 
 
-void test_cout_struct()
-{
+void test_cout_struct() {
     mystruct_1 ms1;
     mystruct_2 ms2;
-    cout<<"ms1 = "<<ms1<<endl;
-    cout<<"ms2 = "<<ms2<<endl;
+    cout << "ms1 = " << ms1 << endl;
+    cout << "ms2 = " << ms2 << endl;
 }
 
-void test_mystring()
-{
+void test_mystring() {
     Mystring ms2("hello");  //+++++++ gouzao from char*
     Mystring ms1(ms2);//+++++++ copy gouzao from mystring&
-    char a=ms2[1];//+++++++ char []
-    const char b=ms1[1];//+++++++ char []
-    const char &c=ms1[1];//+++++++ char []
+    char a = ms2[1];//+++++++ char []
+    const char b = ms1[1];//+++++++ char []
+    const char &c = ms1[1];//+++++++ char []
 
     const Mystring ms3(ms1);//+++++++ copy gouzao from mystring&
-    char d=ms3[1];//+++++++ const char[]
-    const char &e=ms3[1];//+++++++ const char[]
+    char d = ms3[1];//+++++++ const char[]
+    const char &e = ms3[1];//+++++++ const char[]
 
-    assert(a==b);
+    assert(a == b);
     //xigou ms3,ms1,ms2
 }
 
-void test_string()
-{
-    string s="hello, world";
-    string s1=s.substr(0, -1);  assert(s1==s);
-    string s2=s.substr(0, -2);  assert(s2==s1);
-    string s3=s.substr(0, 3);   assert(s3=="hel");
-    string s4=s.substr(3, 3);   assert(s4=="lo,");
+void test_string() {
+    string s = "hello, world";
+    string s1 = s.substr(0, -1);
+    assert(s1 == s);
+    string s2 = s.substr(0, -2);
+    assert(s2 == s1);
+    string s3 = s.substr(0, 3);
+    assert(s3 == "hel");
+    string s4 = s.substr(3, 3);
+    assert(s4 == "lo,");
 
     size_t index = s.find_first_of('o', 6); //从s[6]开始找'o'；
-    assert(8==index);
+    assert(8 == index);
 
     index = s.find_first_of("rd", 0);   // 找 rd 中任何一个出现的地方， 从index=0开始找
-    assert(9==index);
+    assert(9 == index);
 
-    cout<<"test string ok"<<endl;
+    cout << "test string ok" << endl;
 }
 
-void test_priority_queue()
-{
+void test_priority_queue() {
     priority_queue<int> pque;  // 默认会创建大顶堆
     priority_queue<int, vector<int>, greater<int>> litque; // 小顶堆
 
     std::default_random_engine generator;
-    std::uniform_int_distribution<int> dis(0,100);
+    std::uniform_int_distribution<int> dis(0, 100);
     std::normal_distribution<float> dis2(0, 10);  //应该是 均值0， 方差10  的正态分布
 //    随机数由生成器和分布器结合产生
 //    生成器generator：能够产生离散的等可能分布数值
 //    分布器distributions: 能够把generator产生的均匀分布值映射到其他常见分布，如
 //    均匀分布uniform，正态分布normal，二项分布binomial，泊松分布poisson
 
-    for(int i=0;i<10;++i)
-    {
-        int tmp=dis(generator);
+    for (int i = 0; i < 10; ++i) {
+        int tmp = dis(generator);
         pque.push(tmp);
         litque.push(tmp);
     }
 
-    while(!pque.empty())
-    {
-        cout<<"_"<<pque.top();
+    while (!pque.empty()) {
+        cout << "_" << pque.top();
         pque.pop();
-    }cout<<endl;
+    }
+    cout << endl;
 
-    while(!litque.empty())
-    {
-        cout<<"_"<<litque.top();
+    while (!litque.empty()) {
+        cout << "_" << litque.top();
         litque.pop();
-    }cout<<endl;
+    }
+    cout << endl;
 
     //下面测试结构体的优先队列，需要结构体实现了 < 符号
     vector<Mystring> mstrs = {"hello", "world", "ipad"};
     //Mystring mstrs[] = {"hello", "world", "ipad"};
-    cout<<"___________"<<endl;
+    cout << "___________" << endl;
     priority_queue<Mystring> strque;
-    for(const auto &s: mstrs)
-    {
+    for (const auto &s: mstrs) {
         strque.push(s);
         //cout<<"s="<<s<<endl;
     }
 
-    while(!strque.empty())   // 弹出顺序 world, ipad, hello 也是大顶堆
+    while (!strque.empty())   // 弹出顺序 world, ipad, hello 也是大顶堆
     {
-        cout<<strque.top()<<"+++++"<<endl;
+        cout << strque.top() << "+++++" << endl;
         strque.pop();
     }
 
     //测试结构体的小顶堆
-    cout<<"___________"<<endl;
+    cout << "___________" << endl;
     priority_queue<Mystring, vector<Mystring>, greater<Mystring>> lit_strque;
     //使用重载的 > 符号，创建小顶堆
     //弹出顺序 hello, ipad, world
-    for(const auto &s: mstrs)
+    for (const auto &s: mstrs)
         lit_strque.push(s);
-    while(!lit_strque.empty())
-    {
-        cout<<lit_strque.top()<<"_________"<<endl;
+    while (!lit_strque.empty()) {
+        cout << lit_strque.top() << "_________" << endl;
         lit_strque.pop();
     }
     /*   可以看到，在使用的时候，会多次调用 拷贝构造函数，赋值函数，析构函数 。。。
@@ -320,51 +318,46 @@ void test_priority_queue()
 }
 
 
-void test_pair()
-{
-    cout<<"---------test_pair-------"<<endl;
+void test_pair() {
+    cout << "---------test_pair-------" << endl;
     //pair 默认大顶堆，安装pair.first排序
     vector<pair<int, int>> pairvec;
     std::default_random_engine generator;
-    std::uniform_int_distribution<int> dis(0,100);
-    for(int i=0;i<10;++i)
-    {
-        int first=dis(generator);
-        int second=dis(generator);
+    std::uniform_int_distribution<int> dis(0, 100);
+    for (int i = 0; i < 10; ++i) {
+        int first = dis(generator);
+        int second = dis(generator);
         pairvec.emplace_back(pair<int, int>(first, second));
     }
 
     priority_queue<pair<int, int>> pque1;
-    for(const pair<int, int> &p : pairvec)
+    for (const pair<int, int> &p : pairvec)
         pque1.push(p);
-    while(!pque1.empty())
-    {
-        cout<<"pop pque1: "<<pque1.top().first<<"\t"<<pque1.top().second<<endl;
+    while (!pque1.empty()) {
+        cout << "pop pque1: " << pque1.top().first << "\t" << pque1.top().second << endl;
         pque1.pop();
     }
 
-    cout<<"----------------------"<<endl;
+    cout << "----------------------" << endl;
 
     // 下面创建大顶堆 , 默认也是按照 pair.first 排序的
     priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pque2;
-    for(const auto &p: pairvec)
+    for (const auto &p: pairvec)
         pque2.push(p);
-    while(!pque2.empty())
-    {
-        cout<<"pop pque2: "<<pque2.top().first<<"\t"<<pque2.top().second<<endl;
+    while (!pque2.empty()) {
+        cout << "pop pque2: " << pque2.top().first << "\t" << pque2.top().second << endl;
         pque2.pop();
     }
-    cout<<"----------------------"<<endl;
+    cout << "----------------------" << endl;
 
     // 下面创建小顶堆，且按照pair.second 排序
-    priority_queue<pair<int, int>, vector<pair<int,int>>, my_solution> litpque3;
-    for(const auto&p:pairvec)
+    priority_queue<pair<int, int>, vector<pair<int, int>>, my_solution> litpque3;
+    for (const auto &p:pairvec)
         litpque3.push(p);
-    while(!litpque3.empty())
-    {
-        cout<<"pop litpque3: "<<litpque3.top().first<<"\t"<<litpque3.top().second<<endl;
+    while (!litpque3.empty()) {
+        cout << "pop litpque3: " << litpque3.top().first << "\t" << litpque3.top().second << endl;
         litpque3.pop();
     }
-    cout<<"----------------------"<<endl;
+    cout << "----------------------" << endl;
 
 }

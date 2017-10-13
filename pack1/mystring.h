@@ -47,6 +47,7 @@ public:
     friend std::ostream &operator<<(std::ostream &os, const Mystring &s);
 
     friend std::istream &operator<<(std::istream &is, Mystring &s);
+
     static int HowMany();
 };
 
