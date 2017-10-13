@@ -441,9 +441,9 @@ void test_extend() {
     cout << "base2.size: " << sizeof(b2) << endl;
     cout << "base2.size: " << sizeof(b3) << endl;
 
-    static_assert(sizeof(b1) == 4);
-    static_assert(sizeof(b2) == 8);
-    static_assert(sizeof(b3) == 12);
+    assert(sizeof(b1) == 4);
+    assert(sizeof(b2) == 8);
+    assert(sizeof(b3) == 12);
 
     cout << "-------------test_extend_end ------" << endl;
 }
@@ -451,10 +451,10 @@ void test_extend() {
 
 void test_tmp_everything() {
     mystruct_3 m3;
-    static_assert(sizeof(m3) == 8);
-    static_assert(sizeof(m3.x) == 4);
-    static_assert(sizeof(m3.u) == 4);
-    static_assert(sizeof(m3.u.st) == 2);   //虽然u.st size=2 , 但是作为联合体，按照大的算， u.a, u.b 占用一个int size=4
+    assert(sizeof(m3) == 8);
+    assert(sizeof(m3.x) == 4);
+    assert(sizeof(m3.u) == 4);
+    assert(sizeof(m3.u.st) == 2);   //虽然u.st size=2 , 但是作为联合体，按照大的算， u.a, u.b 占用一个int size=4
 }
 
 void test_str2vec() {
