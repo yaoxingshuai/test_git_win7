@@ -405,7 +405,7 @@ void test_hash() {
 
 /*
 #include <pthread.h>
-#include <unistd.h>   //在linux中需要引入改文件, 并且编译的时候需要 -l pthread,   windows不能用, mac 下直接通过
+#include <unistd.h>   //在linux中需要引入改文件, 并且编译的时候需要 -l pthread,   windows不能用pthread, mac 下直接通过
 
 #define NUM_THREADS 5
 
@@ -473,4 +473,18 @@ void test_str2vec() {
     assert(i2 == 83);
 
     cout << "-------------test_str2vec end-------" << endl;
+}
+
+void test_time() {
+    cout << "-------------test_time-------" << endl;
+    time_t now_time;
+    now_time = time(NULL);
+    cout << "now time: " << now_time << endl;
+
+    time_t t = time(nullptr);
+    char tmp[64];
+    strftime(tmp, sizeof(tmp), "%Y/%m/%d %X %A  第 %j dayth %z", localtime(&t));
+    cout << "str time: " << tmp << endl;
+
+    cout << "-------------test_time end-------" << endl;
 }

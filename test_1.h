@@ -62,4 +62,6 @@ void test_tmp_everything();
 
 void test_str2vec();
 
+void test_time();
+
 #endif //CLION_PRO1_TEST_1_H

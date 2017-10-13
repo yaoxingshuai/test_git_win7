@@ -106,8 +106,9 @@ int main() {
     //test_extend();
 
     //test_tmp_everything();
-    test_str2vec();
+    //test_str2vec();
 
+    test_time();
     //getchar();
     return 0;
 }
