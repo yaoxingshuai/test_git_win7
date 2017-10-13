@@ -5,6 +5,7 @@
 #ifndef TEST_GIT_WIN7_MY_SOLUTION_H
 #define TEST_GIT_WIN7_MY_SOLUTION_H
 
+#include <iostream>
 
 class my_solution {
 public:
@@ -21,6 +22,13 @@ public:
         tmp = a;
         a = b;
         b = tmp;
+    }
+
+    inline bool operator()(const std::pair<int, int> &p1, const std::pair<int, int> &p2)
+    {
+        if(p1.second == p2.second)
+            return p1.first > p2.first;
+        return p1.second > p2.second;
     }
 };
 

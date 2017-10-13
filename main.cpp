@@ -96,7 +96,9 @@ int main() {
 //    test_cout_struct();
 //    test_mystring();
 //    test_string();
-    test_priority_queue();
+//    test_priority_queue();
+
+    test_pair();
     //getchar();
     return 0;
 }

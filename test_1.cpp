@@ -1,6 +1,7 @@
 #include "test_1.h"
 #include "mystruct.h"
-#include "stdio.h"
+#include "my_solution.h"
+#include <cstdio>
 #include <iostream>
 #include <string>
 #include <cstring>
@@ -315,5 +316,55 @@ void test_priority_queue()
     +++++++ fuzhi from mystring&
      ...
      */
+
+}
+
+
+void test_pair()
+{
+    cout<<"---------test_pair-------"<<endl;
+    //pair 默认大顶堆，安装pair.first排序
+    vector<pair<int, int>> pairvec;
+    std::default_random_engine generator;
+    std::uniform_int_distribution<int> dis(0,100);
+    for(int i=0;i<10;++i)
+    {
+        int first=dis(generator);
+        int second=dis(generator);
+        pairvec.emplace_back(pair<int, int>(first, second));
+    }
+
+    priority_queue<pair<int, int>> pque1;
+    for(const pair<int, int> &p : pairvec)
+        pque1.push(p);
+    while(!pque1.empty())
+    {
+        cout<<"pop pque1: "<<pque1.top().first<<"\t"<<pque1.top().second<<endl;
+        pque1.pop();
+    }
+
+    cout<<"----------------------"<<endl;
+
+    // 下面创建大顶堆 , 默认也是按照 pair.first 排序的
+    priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pque2;
+    for(const auto &p: pairvec)
+        pque2.push(p);
+    while(!pque2.empty())
+    {
+        cout<<"pop pque2: "<<pque2.top().first<<"\t"<<pque2.top().second<<endl;
+        pque2.pop();
+    }
+    cout<<"----------------------"<<endl;
+
+    // 下面创建小顶堆，且按照pair.second 排序
+    priority_queue<pair<int, int>, vector<pair<int,int>>, my_solution> litpque3;
+    for(const auto&p:pairvec)
+        litpque3.push(p);
+    while(!litpque3.empty())
+    {
+        cout<<"pop litpque3: "<<litpque3.top().first<<"\t"<<litpque3.top().second<<endl;
+        litpque3.pop();
+    }
+    cout<<"----------------------"<<endl;
 
 }

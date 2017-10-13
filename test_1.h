@@ -46,4 +46,6 @@ void test_string();
 
 void test_priority_queue();
 
+void test_pair();
+
 #endif //CLION_PRO1_TEST_1_H
