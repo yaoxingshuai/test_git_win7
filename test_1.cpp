@@ -363,9 +363,8 @@ void test_pair() {
 
 }
 
-void test_hash()
-{
-    cout<<"__________test_hash________"<<endl;
+void test_hash() {
+    cout << "__________test_hash________" << endl;
     hash<int> hint;
     hash<string> hstr;
 
@@ -381,15 +380,16 @@ void test_hash()
         z2: 6790229356339542235
      */
 
-    cout<<hex;   //接下来都是16进制
+    cout << hex;   //接下来都是16进制
     cout.setf(ios::showbase | ios::uppercase);  //接下来都是 展示 OX，不然用户可能不知道是16进制
 
-    cout.width(32); cout.fill('0');  // width，fill 这两个只能持续一次
-    cout<<"x: "<<x<<endl; //问题是出现如下情况，把 x: 也算到一起了   000000x: 7b
+    cout.width(32);
+    cout.fill('0');  // width，fill 这两个只能持续一次
+    cout << "x: " << x << endl; //问题是出现如下情况，把 x: 也算到一起了   000000x: 7b
 
-    cout<<"y: "<<setw(32)<<setfill('0')<<y<<endl;    //这个也只出现一次，但是效果好得多    需要引入 <iomanip>
-    cout<<"z1: "<<z1<<endl;
-    cout<<"z2: "<<z2<<endl;
+    cout << "y: " << setw(32) << setfill('0') << y << endl;    //这个也只出现一次，但是效果好得多    需要引入 <iomanip>
+    cout << "z1: " << z1 << endl;
+    cout << "z2: " << z2 << endl;
 
 
     /*
@@ -399,5 +399,31 @@ void test_hash()
         z1: 0X34432CE1C0308A8
         z2: 0X5E3BBD9F980C38DB
      */
-    cout<<"__________test_hash_end_______"<<endl;
+    cout << "__________test_hash_end_______" << endl;
+}
+
+
+#include <pthread.h>
+
+#define NUM_THREADS 5
+
+// 线程的运行函数
+void *say_hello(void *args) {
+    cout << "Hello Runoob！" << endl;
+    sleep(10);
+    cout<<"-----exit"<<endl;
+}
+
+void test_thread() {
+    pthread_t tids[NUM_THREADS];
+    for (int i = 0; i < NUM_THREADS; ++i) {
+        //参数依次是：创建的线程id，线程参数，调用的函数，传入的函数参数
+        int ret = pthread_create(&tids[i], NULL, say_hello, NULL);
+        if (ret != 0) {
+            cout << "pthread_create error: error_code=" << ret << endl;
+        }
+        sleep(1);
+    }
+    //等各个线程退出后，进程才结束，否则进程强制结束了，线程可能还没反应过来；
+    pthread_exit(NULL);
 }

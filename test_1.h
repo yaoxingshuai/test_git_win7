@@ -54,4 +54,6 @@ void test_pair();
 
 void test_hash();
 
+void test_thread();
+
 #endif //CLION_PRO1_TEST_1_H

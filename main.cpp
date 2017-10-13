@@ -97,10 +97,9 @@ int main() {
 //    test_mystring();
 //    test_string();
 //    test_priority_queue();
-
 //    test_pair();
-
-    test_hash();
+//    test_hash();
+    test_thread();
 
     //getchar();
     return 0;
