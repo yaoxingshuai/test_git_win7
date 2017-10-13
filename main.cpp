@@ -103,7 +103,10 @@ int main() {
 //    test_hash();
 
     // test_thread();   //only used for mac and linux
-    test_extend();
+    //test_extend();
+
+    test_tmp_everything();
+
     //getchar();
     return 0;
 }

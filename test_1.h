@@ -58,4 +58,6 @@ void test_thread();
 
 void test_extend();
 
+void test_tmp_everything();
+
 #endif //CLION_PRO1_TEST_1_H

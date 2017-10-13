@@ -447,3 +447,13 @@ void test_extend()
 
     cout<<"-------------test_extend_end ------"<<endl;
 }
+
+
+void test_tmp_everything()
+{
+    mystruct_3 m3;
+    assert(sizeof(m3) == 8);
+    assert(sizeof(m3.x)==4);
+    assert(sizeof(m3.u)==4);
+    assert(sizeof(m3.u.st)==2);   //虽然u.st size=2 , 但是作为联合体，按照大的算， u.a, u.b 占用一个int size=4
+}

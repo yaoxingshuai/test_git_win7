@@ -62,5 +62,13 @@ private:
     int bx3;
 };
 
+class mystruct_3{
+public:
+    int x;
+    union {
+        short st;
+        int a:2,b:1;
+    } u;
+};
 
 #endif //CLION_PRO1_MYSTRUCT_H
