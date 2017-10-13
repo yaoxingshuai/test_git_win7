@@ -46,4 +46,21 @@ public:
     friend std::ostream &operator<<(std::ostream &os, const mystruct_2 &);
 };
 
+
+class Base1 {
+private:
+    int bx1;
+};
+
+class Base2: public Base1{
+private:
+    int bx2;
+};
+
+class Base3: public Base2{
+private:
+    int bx3;
+};
+
+
 #endif //CLION_PRO1_MYSTRUCT_H
