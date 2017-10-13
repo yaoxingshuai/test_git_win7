@@ -52,4 +52,6 @@ void test_priority_queue();
 
 void test_pair();
 
+void test_hash();
+
 #endif //CLION_PRO1_TEST_1_H

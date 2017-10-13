@@ -98,7 +98,10 @@ int main() {
 //    test_string();
 //    test_priority_queue();
 
-    test_pair();
+//    test_pair();
+
+    test_hash();
+
     //getchar();
     return 0;
 }

@@ -11,6 +11,7 @@
 #include "pack1/mystring.h"
 #include <queue>
 #include <random>
+#include <iomanip>
 // #include <direct.h>  // this can be only used in windows, and use _getcwd
 // #include <unistd.h>  // this is used for linux, also use getcwd
 
@@ -360,4 +361,43 @@ void test_pair() {
     }
     cout << "----------------------" << endl;
 
+}
+
+void test_hash()
+{
+    cout<<"__________test_hash________"<<endl;
+    hash<int> hint;
+    hash<string> hstr;
+
+    size_t x = hint(123);
+    size_t y = hint(121234);
+    size_t z1 = hstr("hello");
+    size_t z2 = hstr("world");
+
+    /*
+        x: 123
+        y: 121234
+        z1: 235368941344721064
+        z2: 6790229356339542235
+     */
+
+    cout<<hex;   //接下来都是16进制
+    cout.setf(ios::showbase | ios::uppercase);  //接下来都是 展示 OX，不然用户可能不知道是16进制
+
+    cout.width(32); cout.fill('0');  // width，fill 这两个只能持续一次
+    cout<<"x: "<<x<<endl; //问题是出现如下情况，把 x: 也算到一起了   000000x: 7b
+
+    cout<<"y: "<<setw(32)<<setfill('0')<<y<<endl;    //这个也只出现一次，但是效果好得多    需要引入 <iomanip>
+    cout<<"z1: "<<z1<<endl;
+    cout<<"z2: "<<z2<<endl;
+
+
+    /*
+     * output
+        00000000000000000000000000000x: 0X7B
+        y: 00000000000000000000000000X1D992
+        z1: 0X34432CE1C0308A8
+        z2: 0X5E3BBD9F980C38DB
+     */
+    cout<<"__________test_hash_end_______"<<endl;
 }
