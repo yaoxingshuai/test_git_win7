@@ -466,7 +466,6 @@ void test_str2vec() {
     Show_Solution show_sov;
     show_sov.show_vec(vector1);
 
-
     int i = 123;
     string string2 = to_string(i);
     assert(string2 == "123");
