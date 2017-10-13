@@ -20,6 +20,8 @@
 选中   ALT+F8
 */
 
+// g++ -std=c++11 -g main.cpp test_1.cpp -o gdb_main  产生gdb
+
 using namespace std;
 
 
@@ -99,8 +101,9 @@ int main() {
 //    test_priority_queue();
 //    test_pair();
 //    test_hash();
-    test_thread();
 
+    // test_thread();   //only used for mac and linux
+    test_extend();
     //getchar();
     return 0;
 }

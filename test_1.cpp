@@ -402,8 +402,9 @@ void test_hash() {
     cout << "__________test_hash_end_______" << endl;
 }
 
-
+/*
 #include <pthread.h>
+#include <unistd.h>   //在linux中需要引入改文件, 并且编译的时候需要 -l pthread,   windows不能用, mac 下直接通过
 
 #define NUM_THREADS 5
 
@@ -426,4 +427,23 @@ void test_thread() {
     }
     //等各个线程退出后，进程才结束，否则进程强制结束了，线程可能还没反应过来；
     pthread_exit(NULL);
+}
+*/
+
+void test_extend()
+{
+    cout<<"-------------test_extend-------"<<endl;
+    Base1 b1;
+    Base2 b2;
+    Base3 b3;
+
+    cout<<"base1.size: "<< sizeof(b1)<<endl;
+    cout<<"base2.size: "<< sizeof(b2)<<endl;
+    cout<<"base2.size: "<< sizeof(b3)<<endl;
+
+    static_assert(sizeof(b1)==4);
+    static_assert(sizeof(b2)==8);
+    static_assert(sizeof(b3)==12);
+
+    cout<<"-------------test_extend_end ------"<<endl;
 }
