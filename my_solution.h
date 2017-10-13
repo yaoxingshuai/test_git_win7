@@ -6,6 +6,8 @@
 #define TEST_GIT_WIN7_MY_SOLUTION_H
 
 #include <iostream>
+#include <vector>
+#include <string>
 
 class my_solution {
 public:
@@ -27,6 +29,10 @@ public:
             return p1.first > p2.first;
         return p1.second > p2.second;
     }
+
+    //将字符串转为vector<int>     c++版split
+    std::vector<int> str2vec(const std::string &);
+
 };
 
 

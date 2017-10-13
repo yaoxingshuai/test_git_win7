@@ -105,7 +105,8 @@ int main() {
     // test_thread();   //only used for mac and linux
     //test_extend();
 
-    test_tmp_everything();
+    //test_tmp_everything();
+    test_str2vec();
 
     //getchar();
     return 0;

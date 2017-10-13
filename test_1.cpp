@@ -9,6 +9,7 @@
 #include <fstream>
 #include <cassert>
 #include "pack1/mystring.h"
+#include "pack1/show.h"
 #include <queue>
 #include <random>
 #include <iomanip>
@@ -450,8 +451,27 @@ void test_extend() {
 
 void test_tmp_everything() {
     mystruct_3 m3;
-    assert(sizeof(m3) == 8);
-    assert(sizeof(m3.x) == 4);
-    assert(sizeof(m3.u) == 4);
-    assert(sizeof(m3.u.st) == 2);   //虽然u.st size=2 , 但是作为联合体，按照大的算， u.a, u.b 占用一个int size=4
+    static_assert(sizeof(m3) == 8);
+    static_assert(sizeof(m3.x) == 4);
+    static_assert(sizeof(m3.u) == 4);
+    static_assert(sizeof(m3.u.st) == 2);   //虽然u.st size=2 , 但是作为联合体，按照大的算， u.a, u.b 占用一个int size=4
+}
+
+void test_str2vec() {
+    cout << "-------------test_str2vec-------" << endl;
+    my_solution sov;
+    string string1 = "   1 23 5 32 42 234  654 64  45 \t 12 \n 123 ";
+    vector<int> vector1 = sov.str2vec(string1);
+
+    Show_Solution show_sov;
+    show_sov.show_vec(vector1);
+
+
+    int i = 123;
+    string string2 = to_string(i);
+    assert(string2 == "123");
+    int i2 = stoi(string2, 0, 8);  //8 进制"123"  1*8^2 + 2*8 + 3 == 83
+    assert(i2 == 83);
+
+    cout << "-------------test_str2vec end-------" << endl;
 }
