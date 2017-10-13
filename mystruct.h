@@ -52,22 +52,22 @@ private:
     int bx1;
 };
 
-class Base2: public Base1{
+class Base2 : public Base1 {
 private:
     int bx2;
 };
 
-class Base3: public Base2{
+class Base3 : public Base2 {
 private:
     int bx3;
 };
 
-class mystruct_3{
+class mystruct_3 {
 public:
     int x;
     union {
         short st;
-        int a:2,b:1;
+        int a:2, b:1;
     } u;
 };
 

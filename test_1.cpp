@@ -430,30 +430,28 @@ void test_thread() {
 }
 */
 
-void test_extend()
-{
-    cout<<"-------------test_extend-------"<<endl;
+void test_extend() {
+    cout << "-------------test_extend-------" << endl;
     Base1 b1;
     Base2 b2;
     Base3 b3;
 
-    cout<<"base1.size: "<< sizeof(b1)<<endl;
-    cout<<"base2.size: "<< sizeof(b2)<<endl;
-    cout<<"base2.size: "<< sizeof(b3)<<endl;
+    cout << "base1.size: " << sizeof(b1) << endl;
+    cout << "base2.size: " << sizeof(b2) << endl;
+    cout << "base2.size: " << sizeof(b3) << endl;
 
-    static_assert(sizeof(b1)==4);
-    static_assert(sizeof(b2)==8);
-    static_assert(sizeof(b3)==12);
+    static_assert(sizeof(b1) == 4);
+    static_assert(sizeof(b2) == 8);
+    static_assert(sizeof(b3) == 12);
 
-    cout<<"-------------test_extend_end ------"<<endl;
+    cout << "-------------test_extend_end ------" << endl;
 }
 
 
-void test_tmp_everything()
-{
+void test_tmp_everything() {
     mystruct_3 m3;
     assert(sizeof(m3) == 8);
-    assert(sizeof(m3.x)==4);
-    assert(sizeof(m3.u)==4);
-    assert(sizeof(m3.u.st)==2);   //虽然u.st size=2 , 但是作为联合体，按照大的算， u.a, u.b 占用一个int size=4
+    assert(sizeof(m3.x) == 4);
+    assert(sizeof(m3.u) == 4);
+    assert(sizeof(m3.u.st) == 2);   //虽然u.st size=2 , 但是作为联合体，按照大的算， u.a, u.b 占用一个int size=4
 }
