@@ -16,6 +16,7 @@
 #include <iomanip>
 // #include <direct.h>  // this can be only used in windows, and use _getcwd
 // #include <unistd.h>  // this is used for linux, also use getcwd
+#include <memory>  //for auto_ptr unique_ptr share_ptr
 
 using namespace std;
 //
@@ -528,3 +529,58 @@ catch an exception: ---this is an exception---
 try end------
 */
 }
+
+
+unique_ptr<string> check_tmp_unique_ptr() {
+    unique_ptr<string> tmp_uni_ptr(new string("hello"));
+    cout << *tmp_uni_ptr << endl;
+    return tmp_uni_ptr;
+}
+
+void test_smart_ptr() {
+    double *pDouble = new double;
+    *pDouble = 25.6;
+    delete (pDouble);
+
+    /*----------------------*/
+
+    // ***** unique_ptr<double > uni_ptr=new double;   // impor: 不能这样初始化，不知道为啥
+    // *****       因为：   new double 返回的是一个普通指针，不能将一个普通指针赋值给智能指针
+
+    unique_ptr<double> uni_ptr(new double); //只能这样，     但是可以用普通指针初始化智能指针
+    *uni_ptr = 30.1;
+    // delete is not needed
+
+    shared_ptr<int> shr_ptr(new int);
+    *shr_ptr = 3;
+
+    cout << *uni_ptr << "__" << *shr_ptr << endl;
+
+    // impor 这个行为需要避免
+// *   string string1("it's dangerous");
+// *   shared_ptr<string> danger_ptr(&string1);   //不把智能指针用于非堆内存
+
+    unique_ptr<string> ps1(new string("this is unique str"));
+    unique_ptr<string> ps2;
+    // ps2=ps1; // unique_ptr cannot assign
+
+    ps2 = check_tmp_unique_ptr();   //临时的unique_ptr，可以转移
+    assert(*ps2 == "hello");
+
+    //unique指针如果需要转移
+    unique_ptr<string> ps3;
+    ps3 = move(ps1);   //如果非要转移，用move， ps3获取权限，ps1指向空
+    assert(*ps3 == "this is unique str");
+    assert(ps1 == nullptr);
+
+
+    // 下面介绍一下智能指针指向 数组
+    unique_ptr<double[]> pds(new double[5]);
+    for (int i = 0; i < 5; ++i) {
+        pds.get()[i] = double(i) / 3;    // ps: not *pds[i]
+    }
+    for (int i = 0; i < 5; ++i)
+        cout << pds.get()[i] << "\t";
+    cout << endl;
+}
+
