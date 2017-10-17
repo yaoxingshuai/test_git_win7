@@ -506,3 +506,25 @@ void test_player() {
     assert(rate_player2.HasTable() == false);
     assert(rate_player2.Rating() == 3);
 }
+
+void test_throw_exception() {
+    cout << "hello, begin throw except" << endl;
+    throw "---this is an exception---";
+    cout << "throw end--- this cannot be reached" << endl;
+}
+
+void test_try_catch() {
+    cout << "try begin---" << endl;
+    try {
+        test_throw_exception();
+    } catch (const char *string1) {
+        cout << "catch an exception: " << string1 << endl;
+    }
+    cout << "try end------" << endl;
+/*
+try begin---
+hello, begin throw except
+catch an exception: ---this is an exception---
+try end------
+*/
+}

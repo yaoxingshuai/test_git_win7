@@ -111,8 +111,8 @@ int main() {
     //test_time();
 
     //test_default_args(x=1, y=5);
-    test_player();
-
+    //test_player();
+    test_try_catch();
     //getchar();
     return 0;
 }

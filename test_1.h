@@ -68,4 +68,8 @@ void test_default_args(int x, int y, int z = 3);  //默认参数需要放到最�
 
 void test_player();
 
+void test_throw_exception();
+
+void test_try_catch();
+
 #endif //CLION_PRO1_TEST_1_H
