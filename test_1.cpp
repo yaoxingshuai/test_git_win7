@@ -10,6 +10,7 @@
 #include <cassert>
 #include "pack1/mystring.h"
 #include "pack1/show.h"
+#include "pack1/player.h"
 #include <queue>
 #include <random>
 #include <iomanip>
@@ -487,4 +488,23 @@ void test_time() {
     cout << "str time: " << tmp << endl;
 
     cout << "-------------test_time end-------" << endl;
+}
+
+void test_default_args(int x, int y, int z)
+{
+    cout<<"x="<<x<<"\t y="<<y<<"\t z="<<z<<endl;
+}
+
+void test_player()
+{
+    TableTennisPlayer base_player;
+    RatedPlayer rate_player;
+    base_player.Name();  //hello: default_fname___default lname
+    rate_player.Name();  //hello: ___
+    assert(rate_player.Rating()==0);
+
+    RatedPlayer rate_player2(3, base_player);
+    rate_player2.Name(); //hello: default_fname___default lname
+    assert(rate_player2.HasTable()== false);
+    assert(rate_player2.Rating()==3);
 }

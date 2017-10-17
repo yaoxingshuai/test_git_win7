@@ -108,7 +108,11 @@ int main() {
     //test_tmp_everything();
     //test_str2vec();
 
-    test_time();
+    //test_time();
+
+    //test_default_args(x=1, y=5);
+    test_player();
+
     //getchar();
     return 0;
 }

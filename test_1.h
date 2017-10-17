@@ -64,4 +64,8 @@ void test_str2vec();
 
 void test_time();
 
+void test_default_args(int x, int y, int z=3);  //默认参数需要放到最右边
+
+void test_player();
+
 #endif //CLION_PRO1_TEST_1_H

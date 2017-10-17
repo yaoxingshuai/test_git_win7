@@ -16,7 +16,7 @@ set(SOURCE_FILES
         mystruct.cpp
         mystruct.h
         test_1.cpp
-        test_1.h)
+        test_1.h pack1/player.cpp pack1/player.h)
 
 include_directories(.)
 include_directories(pack1)
