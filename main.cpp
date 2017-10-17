@@ -113,7 +113,8 @@ int main() {
     //test_default_args(x=1, y=5);
     //test_player();
     //test_try_catch();
-    test_smart_ptr();
+    //test_smart_ptr();
+    test_smart_ptr2();
     //getchar();
     return 0;
 }

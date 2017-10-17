@@ -74,4 +74,6 @@ void test_try_catch();
 
 void test_smart_ptr();
 
+void test_smart_ptr2();
+
 #endif //CLION_PRO1_TEST_1_H

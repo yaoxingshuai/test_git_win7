@@ -17,6 +17,7 @@
 // #include <direct.h>  // this can be only used in windows, and use _getcwd
 // #include <unistd.h>  // this is used for linux, also use getcwd
 #include <memory>  //for auto_ptr unique_ptr share_ptr
+#include <algorithm>  // for_each
 
 using namespace std;
 //
@@ -584,3 +585,19 @@ void test_smart_ptr() {
     cout << endl;
 }
 
+unique_ptr<int> make_int(int n=1){
+    return unique_ptr<int>(new int(n));
+}
+
+void show_ptr(unique_ptr<int> &unique_ptr1){
+    cout<<*unique_ptr1<<"_-_";
+}
+
+void test_smart_ptr2(){
+    unsigned int size=10;
+    vector<unique_ptr<int>> vp(size);
+    for(int i=0;i<size;++i)
+        vp[i]=make_int(i*i);
+    vp.push_back(make_int());
+    for_each(vp.begin(),vp.end(),show_ptr);   // include <algorithm>
+}
