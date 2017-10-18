@@ -114,7 +114,9 @@ int main() {
     //test_player();
     //test_try_catch();
     //test_smart_ptr();
-    test_smart_ptr2();
+    //test_smart_ptr2();
+    test_json();
+    test_make_shared();
     //getchar();
     return 0;
 }

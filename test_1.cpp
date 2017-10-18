@@ -585,19 +585,42 @@ void test_smart_ptr() {
     cout << endl;
 }
 
-unique_ptr<int> make_int(int n=1){
+unique_ptr<int> make_int(int n = 1) {
     return unique_ptr<int>(new int(n));
 }
 
-void show_ptr(unique_ptr<int> &unique_ptr1){
-    cout<<*unique_ptr1<<"_-_";
+void show_ptr(unique_ptr<int> &unique_ptr1) {
+    cout << *unique_ptr1 << "_-_";
 }
 
-void test_smart_ptr2(){
-    unsigned int size=10;
+void test_smart_ptr2() {
+    unsigned int size = 10;
     vector<unique_ptr<int>> vp(size);
-    for(int i=0;i<size;++i)
-        vp[i]=make_int(i*i);
+    for (int i = 0; i < size; ++i)
+        vp[i] = make_int(i * i);
     vp.push_back(make_int());
-    for_each(vp.begin(),vp.end(),show_ptr);   // include <algorithm>
+    for_each(vp.begin(), vp.end(), show_ptr);   // include <algorithm>
+}
+
+//#include "json.h"
+void test_json() {
+    // todo
+    //Json::Value root;
+    cout << "test json end---" << endl;
+}
+
+void test_make_shared() {
+    cout << "------begin test make shared--------" << endl;
+    auto shr_ptr = make_shared<double>(1.1);
+    cout << "*shr_ptr = " << *shr_ptr << endl;
+    *shr_ptr = 3.3;
+    cout << "*shr_ptr = " << *shr_ptr << endl;
+    cout << "------end test make shared--------" << endl;
+
+    {
+        auto mystr_ptr = make_shared<mystruct_1>(1, 2, 3);   //创建一个mystruct的智能指针, 括号后面是参数
+        cout << "this is mystr-----------" << endl;
+        cout << *mystr_ptr << "-------" << endl;
+    }
+
 }

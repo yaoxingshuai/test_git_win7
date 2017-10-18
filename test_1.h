@@ -76,4 +76,8 @@ void test_smart_ptr();
 
 void test_smart_ptr2();
 
+void test_json();
+
+void test_make_shared();
+
 #endif //CLION_PRO1_TEST_1_H
