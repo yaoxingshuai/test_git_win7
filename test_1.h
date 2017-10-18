@@ -78,4 +78,6 @@ void test_smart_ptr2();
 
 void test_my_temp_class();
 
+void test_my_temp_class2();
+
 #endif //CLION_PRO1_TEST_1_H

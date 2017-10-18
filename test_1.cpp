@@ -616,4 +616,18 @@ a=1	 b=c	 flag=1
 a=2	 b=hello	 flag=0
      */
     cout << "----------test_my_temp_class end----" << endl;
+
+}
+
+void test_my_temp_class2() {
+    cout << "----------test_my_temp_class2 begin----" << endl;
+
+    MyTempClass_2<int,10> myclass;
+    myclass.put(3);
+    myclass.put(6);
+    myclass.show();
+//3	6	capasity=10
+
+    cout << "----------test_my_temp_class2 end----" << endl;
+
 }

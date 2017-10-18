@@ -54,5 +54,19 @@ public:
     }
 };
 
+//还可以带非模板类型参数哦
+template<typename MyType, int MYSIZE>
+class MyTempClass_2 {
+private:
+    std::vector<MyType> vec;
+public:
+    void put(const MyType &x) { vec.push_back(x); }
+
+    void show() {
+        for (const auto &x: vec)
+            std::cout << x << '\t';
+        std::cout << "capasity=" << MYSIZE << std::endl;
+    }
+};
 
 #endif //TEST_GIT_WIN7_MY_SOLUTION_H
