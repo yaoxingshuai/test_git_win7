@@ -35,5 +35,24 @@ public:
 
 };
 
+//正确的类模板使用姿势
+template<typename T1, typename T2>
+class MyTempClass {
+private:
+    T1 a;
+    T2 b;
+    bool flag;
+public:
+    MyTempClass(const T1 &t1, const T2 &t2, bool f) {
+        a = t1;
+        b = t2;
+        flag = f;
+    }
+
+    void show() {
+        std::cout << "a=" << a << "\t b=" << b << "\t flag=" << flag << std::endl;
+    }
+};
+
 
 #endif //TEST_GIT_WIN7_MY_SOLUTION_H

@@ -114,7 +114,10 @@ int main() {
     //test_player();
     //test_try_catch();
     //test_smart_ptr();
-    test_smart_ptr2();
+    //test_smart_ptr2();
+
+    test_my_temp_class();
+
     //getchar();
     return 0;
 }

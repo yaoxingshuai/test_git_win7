@@ -585,19 +585,35 @@ void test_smart_ptr() {
     cout << endl;
 }
 
-unique_ptr<int> make_int(int n=1){
+unique_ptr<int> make_int(int n = 1) {
     return unique_ptr<int>(new int(n));
 }
 
-void show_ptr(unique_ptr<int> &unique_ptr1){
-    cout<<*unique_ptr1<<"_-_";
+void show_ptr(unique_ptr<int> &unique_ptr1) {
+    cout << *unique_ptr1 << "_-_";
 }
 
-void test_smart_ptr2(){
-    unsigned int size=10;
+void test_smart_ptr2() {
+    unsigned int size = 10;
     vector<unique_ptr<int>> vp(size);
-    for(int i=0;i<size;++i)
-        vp[i]=make_int(i*i);
+    for (int i = 0; i < size; ++i)
+        vp[i] = make_int(i * i);
     vp.push_back(make_int());
-    for_each(vp.begin(),vp.end(),show_ptr);   // include <algorithm>
+    for_each(vp.begin(), vp.end(), show_ptr);   // include <algorithm>
+}
+
+
+void test_my_temp_class() {
+    cout << "----------test_my_temp_class begin----" << endl;
+//    MyTempClass myTempClass1(1, 'c', true);    //不能这样写
+//    MyTempClass myTempClass2(2.0, "hello", false);
+    MyTempClass<int, char> myTempClass1(1, 'c', true);  //需要这样声明类型
+    MyTempClass<double, string> myTempClass2(2.0, "hello", false);
+    myTempClass1.show();
+    myTempClass2.show();
+    /*
+a=1	 b=c	 flag=1
+a=2	 b=hello	 flag=0
+     */
+    cout << "----------test_my_temp_class end----" << endl;
 }
