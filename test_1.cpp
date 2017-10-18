@@ -622,11 +622,17 @@ a=2	 b=hello	 flag=0
 void test_my_temp_class2() {
     cout << "----------test_my_temp_class2 begin----" << endl;
 
-    MyTempClass_2<int,10> myclass;
+    MyTempClass_2<int, 10> myclass;
     myclass.put(3);
     myclass.put(6);
     myclass.show();
-//3	6	capasity=10
+//3	6	capasity=10  size=2
+
+    MyTempClass_2<double, 20> myclass2(1.1, 3);
+    myclass2.put(1.5);
+    myclass2.put(1.6);
+    myclass2.show();
+//1.1	1.1	1.1	1.5	1.6	capasity=20	size=5
 
     cout << "----------test_my_temp_class2 end----" << endl;
 

@@ -55,7 +55,7 @@ public:
 };
 
 //还可以带非模板类型参数哦
-template<typename MyType, int MYSIZE>
+template<typename MyType, int Capasity>
 class MyTempClass_2 {
 private:
     std::vector<MyType> vec;
@@ -65,7 +65,14 @@ public:
     void show() {
         for (const auto &x: vec)
             std::cout << x << '\t';
-        std::cout << "capasity=" << MYSIZE << std::endl;
+        std::cout << "capasity=" << Capasity << '\t';
+        std::cout << "size=" << vec.size() << std::endl;
+    }
+
+    MyTempClass_2() = default;
+
+    MyTempClass_2(const MyType &t, int size) {
+        vec = std::vector<MyType>(size, t);
     }
 };
 
