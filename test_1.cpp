@@ -654,4 +654,11 @@ void test_virtual_method() {
     //this is child override a,b=1,2
     //this is child override a,b=1,2
 
+    pbase->full_virtual_say();
+    base_ptr->full_virtual_say();
+/*
+full virtual child1019
+full virtual child1019 override a,b=1,2
+ */
+
 }

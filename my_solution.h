@@ -82,16 +82,25 @@ public:
     virtual void say() {
         std::cout << "hello, base1019" << std::endl;
     }
+
+    virtual void full_virtual_say()=0;
 };
 
 class Child1019 : public Base1019 {
     //子类不重载父类的虚函数
+    void full_virtual_say() override {
+        std::cout<<"full virtual child1019"<<std::endl;
+    }
 };
 
 class Child1019_override : public Base1019 {
 public:
     void say() override {   // 子类覆盖虚函数， ps 编译器提示用override 显示说明
         std::cout << "this is child override a,b=" << _a << ',' << _b << std::endl;
+    }
+
+    void full_virtual_say() override {    //ps : 如果子类没有重载父类所有的纯虚函数，则子类也是抽象类，抽象类就不能实例化对象
+        std::cout << "full virtual child1019 override a,b=" << _a << ',' << _b << std::endl;
     }
 
     Child1019_override(int a, int b) : _a(a), _b(b) {}
