@@ -76,4 +76,28 @@ public:
     }
 };
 
+//虚函数必须实现吗
+class Base1019 {
+public:
+    virtual void say() {
+        std::cout << "hello, base1019" << std::endl;
+    }
+};
+
+class Child1019 : public Base1019 {
+    //子类不重载父类的虚函数
+};
+
+class Child1019_override : public Base1019 {
+public:
+    void say() override {   // 子类覆盖虚函数， ps 编译器提示用override 显示说明
+        std::cout << "this is child override a,b=" << _a << ',' << _b << std::endl;
+    }
+
+    Child1019_override(int a, int b) : _a(a), _b(b) {}
+
+private:
+    int _a, _b;
+};
+
 #endif //TEST_GIT_WIN7_MY_SOLUTION_H

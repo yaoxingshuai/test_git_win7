@@ -637,3 +637,21 @@ void test_my_temp_class2() {
     cout << "----------test_my_temp_class2 end----" << endl;
 
 }
+
+
+void test_virtual_method() {
+    Child1019 child1019;
+    Base1019 *pbase = &child1019;
+    child1019.say();
+    pbase->say();
+    //hello, base1019
+    //hello, base1019   子类没有覆盖，用父类的函数
+
+    shared_ptr<Child1019_override> child_ptr = make_shared<Child1019_override>(1, 2);
+    child_ptr->say();
+    shared_ptr<Base1019> base_ptr = child_ptr;
+    base_ptr->say();    //虚函数，子类覆盖了父类的函数， 即使用智能指针，也是动态绑定
+    //this is child override a,b=1,2
+    //this is child override a,b=1,2
+
+}

@@ -117,7 +117,8 @@ int main() {
     //test_smart_ptr2();
 
     //test_my_temp_class();
-    test_my_temp_class2();
+    //test_my_temp_class2();
+    test_virtual_method();
     //getchar();
     return 0;
 }
