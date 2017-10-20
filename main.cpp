@@ -115,8 +115,9 @@ int main() {
     //test_try_catch();
     //test_smart_ptr();
     //test_smart_ptr2();
-    test_json();
-    test_make_shared();
+//    test_json();
+//    test_make_shared();
+    test_kong_class();
     //getchar();
     return 0;
 }

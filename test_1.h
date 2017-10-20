@@ -80,4 +80,6 @@ void test_json();
 
 void test_make_shared();
 
+void test_kong_class();
+
 #endif //CLION_PRO1_TEST_1_H

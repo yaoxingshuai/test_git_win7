@@ -71,4 +71,8 @@ public:
     } u;
 };
 
+namespace myspace1{
+    class Kong;
+}
+
 #endif //CLION_PRO1_MYSTRUCT_H

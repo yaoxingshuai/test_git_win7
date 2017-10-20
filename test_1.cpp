@@ -618,9 +618,22 @@ void test_make_shared() {
     cout << "------end test make shared--------" << endl;
 
     {
-        auto mystr_ptr = make_shared<mystruct_1>(1, 2, 3);   //创建一个mystruct的智能指针, 括号后面是参数
+        auto mystr_ptr = make_shared<mystruct_1>(1, 2, 3);   //创建一个mystruct的智能指针, 括号后面是构造函数的参数
         cout << "this is mystr-----------" << endl;
         cout << *mystr_ptr << "-------" << endl;
     }
 
+}
+
+namespace mortred {
+    class Row; //是不是只声明了，没有具体定义啊
+}
+
+void test_kong_class() {
+
+    shared_ptr<mortred::Row> ptr;
+    mortred::Row *row;
+    myspace1::Kong *kong1;   // 对于这种前向声明的类，不能声明对象实例，但是可以声明一个指针
+
+    cout<<"size of kong = "<< sizeof(ptr)<<endl;
 }
