@@ -118,6 +118,10 @@ int main() {
 //    test_json();
 //    test_make_shared();
     test_kong_class();
+
+    //test_my_temp_class();
+    //test_my_temp_class2();
+    test_virtual_method();
     //getchar();
     return 0;
 }

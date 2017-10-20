@@ -635,5 +635,64 @@ void test_kong_class() {
     mortred::Row *row;
     myspace1::Kong *kong1;   // 对于这种前向声明的类，不能声明对象实例，但是可以声明一个指针
 
-    cout<<"size of kong = "<< sizeof(ptr)<<endl;
+    cout << "size of kong = " << sizeof(ptr) << endl;
+}
+
+void test_my_temp_class() {
+    cout << "----------test_my_temp_class begin----" << endl;
+//    MyTempClass myTempClass1(1, 'c', true);    //不能这样写
+//    MyTempClass myTempClass2(2.0, "hello", false);
+    MyTempClass<int, char> myTempClass1(1, 'c', true);  //需要这样声明类型
+    MyTempClass<double, string> myTempClass2(2.0, "hello", false);
+    myTempClass1.show();
+    myTempClass2.show();
+    /*
+a=1	 b=c	 flag=1
+a=2	 b=hello	 flag=0
+     */
+    cout << "----------test_my_temp_class end----" << endl;
+
+}
+
+void test_my_temp_class2() {
+    cout << "----------test_my_temp_class2 begin----" << endl;
+
+    MyTempClass_2<int, 10> myclass;
+    myclass.put(3);
+    myclass.put(6);
+    myclass.show();
+//3	6	capasity=10  size=2
+
+    MyTempClass_2<double, 20> myclass2(1.1, 3);
+    myclass2.put(1.5);
+    myclass2.put(1.6);
+    myclass2.show();
+//1.1	1.1	1.1	1.5	1.6	capasity=20	size=5
+
+    cout << "----------test_my_temp_class2 end----" << endl;
+
+}
+
+
+void test_virtual_method() {
+    Child1019 child1019;
+    Base1019 *pbase = &child1019;
+    child1019.say();
+    pbase->say();
+    //hello, base1019
+    //hello, base1019   子类没有覆盖，用父类的函数
+
+    shared_ptr<Child1019_override> child_ptr = make_shared<Child1019_override>(1, 2);
+    child_ptr->say();
+    shared_ptr<Base1019> base_ptr = child_ptr;
+    base_ptr->say();    //虚函数，子类覆盖了父类的函数， 即使用智能指针，也是动态绑定
+    //this is child override a,b=1,2
+    //this is child override a,b=1,2
+
+    pbase->full_virtual_say();
+    base_ptr->full_virtual_say();
+/*
+full virtual child1019
+full virtual child1019 override a,b=1,2
+ */
 }
