@@ -86,6 +86,8 @@ void test_my_temp_class();
 
 void test_my_temp_class2();
 
-void test_virtual_method();   //子类必须实现父类的虚函数吗
+void test_virtual_method();   //子类必须实现父类的虚函数吗 , 不是必须
+
+void test_enum();
 
 #endif //CLION_PRO1_TEST_1_H

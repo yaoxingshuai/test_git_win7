@@ -117,11 +117,12 @@ int main() {
     //test_smart_ptr2();
 //    test_json();
 //    test_make_shared();
-    test_kong_class();
+    //test_kong_class();
 
     //test_my_temp_class();
     //test_my_temp_class2();
-    test_virtual_method();
+    //test_virtual_method();
+    test_enum();
     //getchar();
     return 0;
 }

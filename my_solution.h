@@ -89,7 +89,7 @@ public:
 class Child1019 : public Base1019 {
     //子类不重载父类的虚函数
     void full_virtual_say() override {
-        std::cout<<"full virtual child1019"<<std::endl;
+        std::cout << "full virtual child1019" << std::endl;
     }
 };
 
@@ -108,5 +108,32 @@ public:
 private:
     int _a, _b;
 };
+
+enum WeekDays {
+    SUNDAY = 0,
+    MONDAY,
+    THURSDAY,
+    WHENDSDAY,
+    TUSEDAY,
+    FRIDAY,
+    SATRUDAY,
+};
+/*
+enum Wenkends{
+    SUNDAY,
+    SATRUDAY,
+};
+ 不可以， enum不能重名
+*/
+
+enum class WeekDaysClass1 {
+    SUNDAY,
+    MONDAY,
+};
+enum class WeekDaysClass2 {
+    SUNDAY,
+    MONDAY,
+}; //但是enum class 在不同的命名空间下，可以
+
 
 #endif //TEST_GIT_WIN7_MY_SOLUTION_H

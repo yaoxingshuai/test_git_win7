@@ -696,3 +696,12 @@ full virtual child1019
 full virtual child1019 override a,b=1,2
  */
 }
+
+void test_enum() {
+    cout << SUNDAY << "___" << SATRUDAY << endl;  //0___6
+//    cout << WeekDaysClass1::SUNDAY << endl;
+//    cout << WeekDaysClass2::MONDAY << endl;    //ps :不能直接转化
+    cout << static_cast<int>(WeekDaysClass1::SUNDAY) << endl;  //0
+    cout << static_cast<int>(WeekDaysClass2::MONDAY) << endl;  //1    //ps: 可以static_cast转int
+    cout << "test enum end" << endl;
+}
