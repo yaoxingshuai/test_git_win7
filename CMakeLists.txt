@@ -17,9 +17,14 @@ set(SOURCE_FILES
         mystruct.h
         test_1.cpp
         test_1.h pack1/player.cpp pack1/player.h)
+set(WORKSPACE ${PROJECT_SOURCE_DIR}/./)   #source_dir指的是当前工作目录
 
 include_directories(.)
 include_directories(pack1)
 include_directories(tmpfiles)
+include_directories(${WORKSPACE}/jsoncpp-src-0.5.0/include)   #json/json.h 头文件的位置
+
+link_directories(${WORKSPACE}/jsoncpp-src-0.5.0/libs/linux-gcc-4.8.5)  # libjson 库文件的位置
 
 add_executable(test_git_win7 ${SOURCE_FILES})
+TARGET_LINK_LIBRARIES(test_git_win7 libjson_linux-gcc-4.8.5_libmt.a)  #把json.a库编译进来

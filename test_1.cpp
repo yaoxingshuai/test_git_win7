@@ -11,6 +11,7 @@
 #include "pack1/mystring.h"
 #include "pack1/show.h"
 #include "pack1/player.h"
+#include "json/json.h"
 #include <queue>
 #include <random>
 #include <iomanip>
@@ -602,13 +603,6 @@ void test_smart_ptr2() {
     for_each(vp.begin(), vp.end(), show_ptr);   // include <algorithm>
 }
 
-//#include "json.h"
-void test_json() {
-    // todo
-    //Json::Value root;
-    cout << "test json end---" << endl;
-}
-
 void test_make_shared() {
     cout << "------begin test make shared--------" << endl;
     auto shr_ptr = make_shared<double>(1.1);
@@ -705,3 +699,10 @@ void test_enum() {
     cout << static_cast<int>(WeekDaysClass2::MONDAY) << endl;  //1    //ps: 可以static_cast转int
     cout << "test enum end" << endl;
 }
+
+
+void test_json(){
+    Json::Value jv;
+    cout<<"---test json end---"<<endl;
+}
+

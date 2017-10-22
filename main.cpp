@@ -122,7 +122,8 @@ int main() {
     //test_my_temp_class();
     //test_my_temp_class2();
     //test_virtual_method();
-    test_enum();
+    //test_enum();
+    test_json();
     //getchar();
     return 0;
 }
