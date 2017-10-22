@@ -702,7 +702,19 @@ void test_enum() {
 
 
 void test_json(){
-    Json::Value jv;
+    string test ="{\"id\":1,\"name\":\"kurama\"}";
+    Json::Reader reader;
+    Json::Value value;
+
+    if(reader.parse(test, value))
+    {
+        if(!value["id"].isNull())
+        {
+            cout<<"---id="<<value["id"].asInt()<<endl;
+            cout<<"---name="<<value["name"].asString()<<endl;
+        }
+    }
+
     cout<<"---test json end---"<<endl;
 }
 
