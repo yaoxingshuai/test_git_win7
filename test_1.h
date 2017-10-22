@@ -91,3 +91,40 @@ void test_virtual_method();   //子类必须实现父类的虚函数吗 , 不是
 void test_enum();
 
 #endif //CLION_PRO1_TEST_1_H
+
+
+
+//#############################
+//# cpx.hh
+//#############################
+#ifndef CPX_HH_1278398428__H_
+#define CPX_HH_1278398428__H_
+
+#include "boost/any.hpp"
+#include "Specific.hh"
+#include "Encoder.hh"
+#include "Decoder.hh"
+
+namespace c {
+    struct cpx {
+        double re;
+        double im;
+    };
+
+}
+namespace avro {
+    template<> struct codec_traits<c::cpx> {
+        static void encode(Encoder& e, const c::cpx& v) {
+            avro::encode(e, v.re);
+            avro::encode(e, v.im);
+        }
+        static void decode(Decoder& d, c::cpx& v) {
+            avro::decode(d, v.re);
+            avro::decode(d, v.im);
+        }
+    };
+
+}
+#endif
+
+void test_avro();

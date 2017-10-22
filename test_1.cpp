@@ -701,62 +701,81 @@ void test_enum() {
 }
 
 
-void test_json(){
-    string test ="{\"id\":1,\"name\":\"kurama\"}";
+void test_json() {
+    string test = "{\"id\":1,\"name\":\"kurama\"}";
     Json::Reader reader;
     Json::Value value;
 
-    if(reader.parse(test, value))
-    {
-        if(!value["id"].isNull())
-        {
-            cout<<"---id="<<value["id"].asInt()<<endl;
-            cout<<"---name="<<value["name"].asString()<<endl;
+    if (reader.parse(test, value)) {
+        if (!value["id"].isNull()) {
+            cout << "---id=" << value["id"].asInt() << endl;
+            cout << "---name=" << value["name"].asString() << endl;
         }
     }
-    cout<<"-----------------more test----------"<<endl;
-    
+    cout << "-----------------more test----------" << endl;
+
     Json::Value root;
-    root["name"]=Json::Value("jump");
-    root["age"]=Json::Value(10);
+    root["name"] = Json::Value("jump");
+    root["age"] = Json::Value(10);
 
     Json::Value child;
-    child["c_name"]=Json::Value("c_sky");
-    child["hot"]=Json::Value(true);
+    child["c_name"] = Json::Value("c_sky");
+    child["hot"] = Json::Value(true);
 
-    root["child"]=Json::Value(child);
+    root["child"] = Json::Value(child);
 
     root["li"].append("li_val1");
     root["li"].append("li_val2");
     root["li"].append("li_val3");
-    
+
     //输出
-    cout<<"fast writer: "<<endl;
+    cout << "fast writer: " << endl;
     Json::FastWriter fw;
-    cout<<"---------root:\n"<<fw.write(root)<<endl;
+    cout << "---------root:\n" << fw.write(root) << endl;
     /*
-fast writer: 
----------root:
-{"age":10,"child":{"c_name":"c_sky","hot":true},"li":["li_val1","li_val2","li_val3"],"name":"jump"}
+        fast writer:
+        ---------root:
+        {"age":10,"child":{"c_name":"c_sky","hot":true},"li":["li_val1","li_val2","li_val3"],"name":"jump"}
      */
 
-    cout<<"styled writer: "<<endl;
+    cout << "styled writer: " << endl;
     Json::StyledWriter sw;
-    cout<<"--------root:\n"<<sw.write(root)<<endl;
-/*
-styled writer: 
---------root:
+    cout << "--------root:\n" << sw.write(root) << endl;
+    /*
+        styled writer:
+        --------root:
+        {
+           "age" : 10,
+           "child" : {
+                 "c_name" : "c_sky",
+                 "hot" : true
+           },
+           "li" : [ "li_val1", "li_val2", "li_val3"  ],
+           "name" : "jump"
+    }
+     */
+    cout << "---test json end---" << endl;
+}
+
+
+#include "Encoder.hh"
+#include "Decoder.hh"
+void test_avro()
 {
-   "age" : 10,
-   "child" : {
-         "c_name" : "c_sky",
-         "hot" : true
-   },
-   "li" : [ "li_val1", "li_val2", "li_val3"  ],
-   "name" : "jump"
-}
+    std::auto_ptr<avro::OutputStream> out = avro::memoryOutputStream();
+    avro::EncoderPtr e = avro::binaryEncoder();
+    e->init(*out);
+    c::cpx c1;
+    c1.re = 1.0;
+    c1.im = 2.13;
+    avro::encode(*e, c1);
 
- */
-    cout<<"---test json end---"<<endl;
-}
+    std::auto_ptr<avro::InputStream> in = avro::memoryInputStream(*out);
+    avro::DecoderPtr d = avro::binaryDecoder();
+    d->init(*in);
 
+    c::cpx c2;
+    avro::decode(*d, c2);
+    std::cout << '(' << c2.re << ", " << c2.im << ')' << std::endl;
+    return ;
+}

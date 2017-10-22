@@ -1,0 +1,1 @@
+/usr/bin/c++  -Wall -fstack-protector-all -D_GLIBCXX_DEBUG  -rdynamic CMakeFiles/avrogencpp.dir/impl/avrogencpp.cc.o  -o avrogencpp libavrocpp_s.a -lboost_filesystem-mt -lboost_system-mt -lboost_program_options-mt -lboost_iostreams-mt -lboost_regex-mt 
