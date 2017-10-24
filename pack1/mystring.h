@@ -10,45 +10,45 @@
 
 class Mystring {
 private:
-    char *str;
-    int len;
-    static int num_strings;
-    static const int CIN_LIMIT = 80;
+  char *str;
+  int len;
+  static int num_strings;
+  static const int CIN_LIMIT = 80;
 public:
-    Mystring(const char *);
+  Mystring(const char *);
 
-    Mystring();
+  Mystring();
 
-    Mystring(const Mystring &);
+  Mystring(const Mystring &);
 
-    ~Mystring();
+  ~Mystring();
 
-    int length() const { return len; };
+  int length() const { return len; };
 
-    Mystring &operator=(const Mystring &);
+  Mystring &operator=(const Mystring &);
 
-    Mystring &operator=(const char *);
+  Mystring &operator=(const char *);
 
-    char &operator[](int i);
+  char &operator[](int i);
 
-    const char &operator[](int i) const;
+  const char &operator[](int i) const;
 
-    friend bool operator<(const Mystring &s1, const Mystring &s2);
+  friend bool operator<(const Mystring &s1, const Mystring &s2);
 
 //    bool operator< ( const Mystring &s2) const
 //    {
 //        return strcmp(this->str, s2.str) < 0;
 //    }
 
-    friend bool operator>(const Mystring &s1, const Mystring &s2);
+  friend bool operator>(const Mystring &s1, const Mystring &s2);
 
-    friend bool operator==(const Mystring &s1, const Mystring &s2);
+  friend bool operator==(const Mystring &s1, const Mystring &s2);
 
-    friend std::ostream &operator<<(std::ostream &os, const Mystring &s);
+  friend std::ostream &operator<<(std::ostream &os, const Mystring &s);
 
-    friend std::istream &operator<<(std::istream &is, Mystring &s);
+  friend std::istream &operator<<(std::istream &is, Mystring &s);
 
-    static int HowMany();
+  static int HowMany();
 };
 
 

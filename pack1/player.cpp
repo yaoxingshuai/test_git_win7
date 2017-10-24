@@ -9,13 +9,13 @@ using namespace std;
 
 
 TableTennisPlayer::TableTennisPlayer(const string &fn, const string &ln, bool ht) {
-    first_name = fn;
-    last_name = ln;
-    has_table = ht;
+  first_name = fn;
+  last_name = ln;
+  has_table = ht;
 }
 
 void TableTennisPlayer::Name() const {
-    cout << "hello: " << first_name << "___" << last_name << endl;
+  cout << "hello: " << first_name << "___" << last_name << endl;
 }
 
 
@@ -25,12 +25,12 @@ void TableTennisPlayer::Name() const {
 //}
 
 RatedPlayer::RatedPlayer(unsigned int r, const string &fn, const string &ln, bool ht) :
-        TableTennisPlayer(fn, ln, ht), rating(r) {
+    TableTennisPlayer(fn, ln, ht), rating(r) {
 
 }
 
 RatedPlayer::RatedPlayer(unsigned int r, const TableTennisPlayer &tp) :
-        TableTennisPlayer(tp) {
-    rating = r;
+    TableTennisPlayer(tp) {
+  rating = r;
 }
 
