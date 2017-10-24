@@ -1,1 +1,0 @@
-/usr/bin/c++  -Wall -fstack-protector-all -D_GLIBCXX_DEBUG  -rdynamic CMakeFiles/precompile.dir/test/precompile.cc.o  -o precompile libavrocpp_s.a -lboost_filesystem-mt -lboost_system-mt -lboost_program_options-mt -lboost_iostreams-mt -lboost_regex-mt 
