@@ -90,6 +90,12 @@ void test_virtual_method();   //子类必须实现父类的虚函数吗 , 不是
 
 void test_enum();
 
+void test_avro();
+
+void test_boost_any();
+
+void test_explict(); //如果构造函数只有一个参数，或者除了这个参数都有默认值，则可能隐式转换
+
 #endif //CLION_PRO1_TEST_1_H
 
 
@@ -129,4 +135,3 @@ namespace avro {
 }
 #endif
 
-void test_avro();

@@ -123,8 +123,10 @@ int main() {
   //test_my_temp_class2();
   //test_virtual_method();
   //test_enum();
-  //test_json();
+  test_json();
   test_avro();
+  test_boost_any();
+  test_explict();
   //getchar();
   return 0;
 }

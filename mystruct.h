@@ -5,7 +5,7 @@
 #ifndef CLION_PRO1_MYSTRUCT_H
 #define CLION_PRO1_MYSTRUCT_H
 
-#include <ostream>
+#include <iostream>
 #include <string>
 
 class mystruct_1 {
@@ -74,5 +74,17 @@ public:
 namespace myspace1 {
   class Kong;
 }
+
+class myclass_4 {
+public:
+  myclass_4(int x): x_(x){
+    std::cout<<"gouzao myclass_4, x="<<x<<std::endl;
+  }
+  void intro() {
+    std::cout<<"myclass_4 x="<<x_<<std::endl;
+  }
+private:
+  int x_;
+};
 
 #endif //CLION_PRO1_MYSTRUCT_H

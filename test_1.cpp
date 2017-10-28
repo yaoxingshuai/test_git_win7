@@ -702,7 +702,7 @@ void test_enum() {
 
 
 void test_json() {
-  string test = "{\"id\":1,\"name\":\"kurama\"}";
+  string test = "{\"id\":1,\t\n \"name\":\"kurama\"}"; //试试换行可以么?
   Json::Reader reader;
   Json::Value value;
 
@@ -778,4 +778,28 @@ void test_avro() {
   avro::decode(*d, c2);
   std::cout << '(' << c2.re << ", " << c2.im << ')' << std::endl;
   return;
+}
+
+void test_boost_any() {
+  boost::any val; 
+}
+
+void test_explict() {
+  myclass_4 m_1(1);
+  m_1.intro();
+
+  m_1 = 3;   // 隐式转换 m_1 = myclass_4 tmp(3);
+  m_1.intro();
+
+  m_1 = 'c';
+  m_1.intro();  // 使用c的ascii码99作为构造函数的值
+/*
+gouzao myclass_4, x=1
+myclass_4 x=1
+gouzao myclass_4, x=3
+myclass_4 x=3
+gouzao myclass_4, x=99
+myclass_4 x=99
+
+ */
 }
