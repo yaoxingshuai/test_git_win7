@@ -126,7 +126,7 @@ int main() {
   test_json();
   test_avro();
   test_boost_any();
-  test_explict();
+  test_explicit();
   //getchar();
   return 0;
 }

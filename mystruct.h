@@ -87,4 +87,17 @@ private:
   int x_;
 };
 
+class myclass_4_explicit {
+public:
+  explicit myclass_4_explicit(int x): x_(x){
+    std::cout<<"gouzao myclass_4_explicit, x="<<x<<std::endl;
+  }
+  void intro() {
+    std::cout<<"myclass_4_explicit x="<<x_<<std::endl;
+  }
+private:
+  int x_;
+
+};
+
 #endif //CLION_PRO1_MYSTRUCT_H

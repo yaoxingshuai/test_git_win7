@@ -784,7 +784,7 @@ void test_boost_any() {
   boost::any val; 
 }
 
-void test_explict() {
+void test_explicit() {
   myclass_4 m_1(1);
   m_1.intro();
 
@@ -802,4 +802,12 @@ gouzao myclass_4, x=99
 myclass_4 x=99
 
  */
+
+  myclass_4_explicit m_2(6);
+  m_2.intro();
+//  gouzao myclass_4_explicit, x=6
+//  myclass_4_explicit x=6
+  
+  //m_2 = 9; //not ok,  explicit 不能隐式转换
+  //no known conversion for argument 1 from ‘int’ to ‘myclass_4_explicit&&’
 }
