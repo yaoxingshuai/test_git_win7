@@ -96,6 +96,8 @@ void test_boost_any();
 
 void test_explicit(); //如果构造函数只有一个参数，或者除了这个参数都有默认值，则可能隐式转换
 
+void test_share_ptr_loop(); //测试智能制造的循环引用
+void test_share_ptr_loop2(); //测试智能制造的循环引用
 #endif //CLION_PRO1_TEST_1_H
 
 

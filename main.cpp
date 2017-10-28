@@ -127,6 +127,8 @@ int main() {
   test_avro();
   test_boost_any();
   test_explicit();
+  test_share_ptr_loop();
+  test_share_ptr_loop2();
   //getchar();
   return 0;
 }

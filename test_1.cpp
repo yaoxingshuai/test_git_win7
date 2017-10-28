@@ -788,7 +788,7 @@ void test_explicit() {
   myclass_4 m_1(1);
   m_1.intro();
 
-  m_1 = 3;   // 隐式转换 m_1 = myclass_4 tmp(3);
+  m_1 = 3;   // 隐式转换 m_1 = myclass_4 tmp(3);  
   m_1.intro();
 
   m_1 = 'c';
@@ -796,18 +796,65 @@ void test_explicit() {
 /*
 gouzao myclass_4, x=1
 myclass_4 x=1
-gouzao myclass_4, x=3
+gouzao myclass_4, x=3  
+~myclass_4 x=3     //看样子是先构造了一个临时对象，赋值后，临时对象被析构
 myclass_4 x=3
 gouzao myclass_4, x=99
+~myclass_4 x=99
 myclass_4 x=99
 
  */
 
   myclass_4_explicit m_2(6);
   m_2.intro();
-//  gouzao myclass_4_explicit, x=6
-//  myclass_4_explicit x=6
-  
   //m_2 = 9; //not ok,  explicit 不能隐式转换
   //no known conversion for argument 1 from ‘int’ to ‘myclass_4_explicit&&’
+  m_2 = myclass_4_explicit(7);
+  m_2.intro();
+  /*
+gouzao myclass_4_explicit, x=6
+myclass_4_explicit x=6
+gouzao myclass_4_explicit, x=7
+~myclass_4_explicit x=7  //可见也是先构造了一个临时对象，然后赋值,然后析构掉
+myclass_4_explicit x=7
+~myclass_4_explicit x=7
+
+   */
 }
+
+//测试智能制造的循环引用
+void test_share_ptr_loop() {
+  cout<<"---------test shared ptr loop  begin----------------"<<endl;
+  {
+    shared_ptr<myclass_4> m4_p = make_shared<myclass_4>(1);
+    shared_ptr<myclass_4_explicit> m4_exp_p = make_shared<myclass_4_explicit>(6);
+    /*
+gouzao myclass_4, x=1
+gouzao myclass_4_explicit, x=6
+~myclass_4_explicit x=6
+~myclass_4 x=1
+     */
+  }
+  cout<<"---------test shared ptr loop  end----------------"<<endl;
+}
+
+void test_share_ptr_loop2() {
+  cout<<"---------test shared ptr loop2  begin----------------"<<endl;
+  {
+    shared_ptr<myclass_4> m4_p = make_shared<myclass_4>(1);
+    shared_ptr<myclass_4_explicit> m4_exp_p = make_shared<myclass_4_explicit>(6);
+    m4_p->set_point(m4_exp_p);
+    m4_exp_p->set_point(m4_p);
+    //impor : 虽然智能制造可以计数并自动释放对象
+    //但是两个指针互相指，导致两个都不能析构
+  }
+  cout<<"---------test shared ptr loop2  end----------------"<<endl;
+  /*
+---------test shared ptr loop2  begin----------------
+gouzao myclass_4, x=1
+gouzao myclass_4_explicit, x=6
+---------test shared ptr loop2  end----------------
+可见，两个都没有析构
+   */
+}
+
