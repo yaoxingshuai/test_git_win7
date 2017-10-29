@@ -1,7 +1,13 @@
 cmake_minimum_required(VERSION 3.8)
 project(test_git_win7)
+message(STATUS "main++++++++++")
 
 set(CMAKE_CXX_STANDARD 11)
+
+set(CMAKE_VERBOSE_MAKEFILE on)   #输出详细的编译和链接信息
+
+set(WORKSPACE ${PROJECT_SOURCE_DIR})
+message(STATUS ${WORKSPACE} "-------main workspace")
 
 set(SOURCE_FILES
         pack1/show.cpp
@@ -32,3 +38,22 @@ link_directories(${WORKSPACE}/avro-cpp-1.8.2/lib)
 
 add_executable(test_git_win7 ${SOURCE_FILES})
 TARGET_LINK_LIBRARIES(test_git_win7 libjson_linux-gcc-4.8.5_libmt.a libavrocpp_s.a)  #把json.a库编译进来
+
+
+
+add_subdirectory(my_libfiles)
+add_subdirectory(test)
+message(STATUS "main end++++++++++")
+
+#  -- main++++++++++
+#  -- /home/test_cpp/test_git_win7-------main workspace
+#  -- mylib++++++++++++++++++
+#  -- /home/test_cpp/test_git_win7--------mylib workspace
+#  -- mylib end++++++++++++++++++
+#  -- test+++++++++++
+#  -- /home/test_cpp/test_git_win7/---------test workspace
+#  -- test end+++++++++++
+#  -- main end++++++++++
+#  -- Configuring done
+#  -- Generating done
+#  -- Build files have been written to: /home/test_cpp/test_git_win7/build
