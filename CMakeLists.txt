@@ -37,7 +37,8 @@ link_directories(${WORKSPACE}/avro-cpp-1.8.2/lib)
 
 
 add_executable(test_git_win7 ${SOURCE_FILES})
-TARGET_LINK_LIBRARIES(test_git_win7 libjson_linux-gcc-4.8.5_libmt.a libavrocpp_s.a)  #把json.a库编译进来
+#TARGET_LINK_LIBRARIES(test_git_win7 libjson_linux-gcc-4.8.5_libmt.a libavrocpp_s.a)  #把json.a库编译进来
+target_link_libraries(test_git_win7 libjson_linux-gcc-4.8.5_libmt.a libavrocpp_s.a)  #把json.a库编译进来
 
 
 
