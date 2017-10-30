@@ -939,4 +939,19 @@ void test_lambda() {
   cout<<"now a3_2="<<a3_2<<"\t a3_1="<<a3_1<<endl;
   assert(a3_2==a3_1);
 }    
-
+#include <boost/progress.hpp>  
+#include <fstream>  
+#include <iterator> 
+void test_progress_bar() {
+  cout<<"test_progress_bar -------"<<endl;
+  std::vector<std::string> v(100);  
+  std::ofstream fs("test");  
+  boost::progress_display pd(v.size());  
+  std::vector<std::string>::iterator pos;  
+  for(pos=v.begin();pos!=v.end();++pos) {  
+    fs<<*pos<<std::endl;  
+    ++pd;  
+    sleep(1);  
+    cout<<"hello, world"<<endl;
+  }  
+}

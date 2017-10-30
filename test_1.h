@@ -101,6 +101,8 @@ void test_share_ptr_loop2(); //测试智能制造的循环引用
 
 void test_bind();
 void test_lambda();
+
+void test_progress_bar(); //测试c++标准进度条
 #endif //CLION_PRO1_TEST_1_H
 
 

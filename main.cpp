@@ -130,7 +130,8 @@ int main() {
 //  test_share_ptr_loop();
 //  test_share_ptr_loop2();
   //test_bind();
-  test_lambda();
+  //test_lambda();
+  test_progress_bar();
   //getchar();
   return 0;
 }
