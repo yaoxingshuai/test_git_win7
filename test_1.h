@@ -100,6 +100,7 @@ void test_share_ptr_loop(); //测试智能制造的循环引用
 void test_share_ptr_loop2(); //测试智能制造的循环引用
 
 void test_bind();
+void test_lambda();
 #endif //CLION_PRO1_TEST_1_H
 
 

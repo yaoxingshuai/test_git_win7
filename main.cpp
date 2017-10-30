@@ -129,7 +129,8 @@ int main() {
 //  test_explicit();
 //  test_share_ptr_loop();
 //  test_share_ptr_loop2();
-  test_bind();
+  //test_bind();
+  test_lambda();
   //getchar();
   return 0;
 }

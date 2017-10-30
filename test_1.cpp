@@ -912,4 +912,31 @@ a=m  b=m
   assert(pp2 == 23);
 }
 
+void test_lambda() {
+
+  auto f1 = [](){cout<<"hello, world-------this is lambda"<<endl;};
+  f1();
+
+  auto f2 = [](){return 111;};
+  int a2 = f2();
+  assert(a2==111);
+
+  auto f3 = [](int a, int b=1){return a+b;};
+  int a3_1 = f3(5);
+  int a3_2 = f3(9, -3);
+  assert(a3_1==a3_2);
+
+  auto say = [=](){cout<<"a3_1="<<a3_1<<endl;};  //[=] 表示使用外部变量，且拷贝一份传入  (外部的都是只读变量，不能赋值)
+  say();
+  assert(a3_1==6);
+
+  auto say2 = [&](){a3_1=2000; cout<<"a3_1="<<a3_1<<endl;};
+  say2();
+  assert(a3_1==2000);
+
+  auto say3 = [a3_1, &a3_2](){a3_2=a3_1; cout<<"change a3_2 to a3_1="<<a3_1<<endl;}; //a3_2引用，可以修改  a3_1拷贝，只读
+  say3();
+  cout<<"now a3_2="<<a3_2<<"\t a3_1="<<a3_1<<endl;
+  assert(a3_2==a3_1);
+}    
 
