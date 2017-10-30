@@ -20,6 +20,8 @@
 #include <memory>  //for auto_ptr unique_ptr share_ptr
 #include <algorithm>  // for_each
 
+#include "intro.h"
+#include <functional>
 using namespace std;
 //
 // Created by stardan on 2017/10/8.
@@ -857,4 +859,44 @@ gouzao myclass_4_explicit, x=6
 可见，两个都没有析构
    */
 }
+
+void test_bind() {
+  sky_space::intro_test();
+  sky_space::bind_a_func(3, 'a', 'b');
+  std::function<void(int, char, char)> bb_func = sky_space::bind_a_func;
+  bb_func(1, 'x', 'y');
+
+  //std::function<void(int, char)> bb_func2 = sky_space::bind_a_func(std::placeholders::_1, 
+  auto bb_func2 = std::bind(sky_space::bind_a_func, std::placeholders::_1, 
+                            std::placeholders::_2, 'z');
+  bb_func2(3, 'c');
+
+  std::function<void(char, int)> bb_func3 = std::bind(sky_space::bind_a_func, std::placeholders::_2, 'a',
+                                                      std::placeholders::_1);
+  bb_func3('b', 1);
+
+  std::function<void(char)> bb_func4 = std::bind(sky_space::bind_a_func, 3, std::placeholders::_1,
+                                                 std::placeholders::_1);
+  bb_func4('m');
+  /*
+hello, ------this is mylibfiles.   sky_space::intro_test()
+hello bind_a_test----
+a=a  b=b
+a=a  b=b
+a=a  b=b
+hello bind_a_test----
+a=x  b=y
+hello bind_a_test----
+a=c  b=z
+a=c  b=z
+a=c  b=z
+hello bind_a_test----
+a=a  b=b
+hello bind_a_test----
+a=m  b=m
+a=m  b=m
+a=m  b=m
+   */
+}
+
 

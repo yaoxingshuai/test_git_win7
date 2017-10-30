@@ -123,12 +123,13 @@ int main() {
   //test_my_temp_class2();
   //test_virtual_method();
   //test_enum();
-  test_json();
-  test_avro();
-  test_boost_any();
-  test_explicit();
-  test_share_ptr_loop();
-  test_share_ptr_loop2();
+  //test_json();
+//  test_avro();
+//  test_boost_any();
+//  test_explicit();
+//  test_share_ptr_loop();
+//  test_share_ptr_loop2();
+  test_bind();
   //getchar();
   return 0;
 }
