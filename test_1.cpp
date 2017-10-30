@@ -897,6 +897,19 @@ a=m  b=m
 a=m  b=m
 a=m  b=m
    */
+  myclass_4 mc4(3);
+  std::function<void()> b_intro = std::bind(&myclass_4::intro, mc4); //intro 没有参数，后面就不用加参数列表了
+  b_intro();
+  
+  cout<<"test --------------- class func bind"<<endl;
+  std::function<int(int)> get_plus = std::bind(&myclass_4::get_plus, mc4, std::placeholders::_1);
+//  auto get_plus = std::bind(&myclass_4::get_plus, mc4, std::placeholders::_1);
+  int pp1 = get_plus(10);
+  assert(pp1 == 13);
+
+  auto get_plus_20 = std::bind(&myclass_4::get_plus, mc4, 20);
+  int pp2 = get_plus_20();
+  assert(pp2 == 23);
 }
 
 

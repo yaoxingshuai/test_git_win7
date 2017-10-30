@@ -87,6 +87,10 @@ public:
     std::cout<<"myclass_4 x="<<x_<<std::endl;
   }
 
+  int get_plus(int px) {
+    return x_+px;
+  } 
+
   void set_point(std::shared_ptr<myclass_4_explicit> me_exp_p) {
     me_p = me_exp_p;
   }
