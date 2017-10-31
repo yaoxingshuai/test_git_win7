@@ -103,6 +103,9 @@ void test_bind();
 void test_lambda();
 
 void test_progress_bar(); //测试c++标准进度条
+
+void test_istreambuf(); //用istreambuf 的iterator读取文件
+
 #endif //CLION_PRO1_TEST_1_H
 
 

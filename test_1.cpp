@@ -955,3 +955,37 @@ void test_progress_bar() {
     cout<<"hello, world"<<endl;
   }  
 }
+void test_istreambuf() {
+  string filepath="../tmpfiles/kafka_source_schema.json";  
+    //虽然test1.cpp在工程目录下，但是可执行文件在 build目录下,所以../tmpfiles
+  ifstream conf_ifs(filepath);
+  string conf_str((istreambuf_iterator<char>(conf_ifs)), istreambuf_iterator<char>());
+  cout<<"-------------conf_str---------------------"<<endl;
+  cout<<conf_str<<endl;
+
+  Json::Value conf_json;
+  Json::Reader reader;
+  if(!reader.parse(conf_str, conf_json)) {
+    cerr<<"json parse error"<<endl;
+  }
+  cout<<"type="<<conf_json["type"]<<endl;
+  cout<<"type.type="<<typeid(conf_json["type"]).name()<<endl;
+  cout<<"fields.type="<<typeid(conf_json["fields"]).name()<<endl;
+  
+  auto fields_list = conf_json["fields"];
+  cout<<"fields_list size="<<fields_list.size()<<endl;
+
+  // auto field0 = fields_list[0];  not ok, i dont know why
+
+  for(const auto &field: fields_list) {
+    cout<<"field name="<<field["name"]<<endl;
+    cout<<"field type="<<field["type"]<<endl;
+  }
+  cout<<"------------------may i cout<<json::value------------\n"<<conf_json<<endl; //可以直接输出json
+
+  //for(auto iter=field0.begin(); iter!=field0.end(); ++iter) {
+  //  cout<<"fffff"<<endl;
+  //}
+
+  cout<<"------------test istreambuf end------------"<<endl;
+}
