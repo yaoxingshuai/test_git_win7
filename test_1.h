@@ -90,6 +90,7 @@ void test_virtual_method();   //子类必须实现父类的虚函数吗 , 不是
 
 void test_enum();
 
+void test_avro_decode();
 void test_avro();
 
 void test_boost_any();

@@ -7,6 +7,7 @@
 #include <cstring>
 #include <climits>
 #include <fstream>
+#include <sstream>
 #include <cassert>
 #include "pack1/mystring.h"
 #include "pack1/show.h"
@@ -763,7 +764,7 @@ void test_json() {
 #include "Encoder.hh"
 #include "Decoder.hh"
 
-void test_avro() {
+void test_avro_decode() {
   std::auto_ptr<avro::OutputStream> out = avro::memoryOutputStream();
   avro::EncoderPtr e = avro::binaryEncoder();
   e->init(*out);
@@ -779,6 +780,44 @@ void test_avro() {
   c::cpx c2;
   avro::decode(*d, c2);
   std::cout << '(' << c2.re << ", " << c2.im << ')' << std::endl;
+  return;
+}
+
+void test_avro() {
+  cout<<"test avro begin---------------"<<endl;
+  //std::auto_ptr<avro::OutputStream> out = avro::memoryOutputStream();
+  //std::auto_ptr<avro::OutputStream> out = avro::ostreamOutputStream(cerr);
+  
+  ostringstream oss;
+
+  std::auto_ptr<avro::OutputStream> out = avro::ostreamOutputStream(oss,3);
+
+  avro::EncoderPtr e = avro::binaryEncoder();
+  e->init(*out);
+  c::cpx c1;
+  c1.re = 1.0;
+  c1.im = 2.13;
+  avro::encode(*e, c1);
+  out->flush();
+  string tmp=oss.str();
+  cout<<"tmp size="<<tmp.size()<<"\n tmp content="<<tmp<<endl;
+
+  std::auto_ptr<avro::InputStream> in = avro::memoryInputStream((const uint8_t*)tmp.c_str(), tmp.size());
+  avro::DecoderPtr d = avro::binaryDecoder();
+  d->init(*in);
+  c::cpx c2;
+  avro::decode(*d, c2);
+  std::cout << "decode ok-----------------(" << c2.re << ", " << c2.im << ')' << std::endl;
+/*
+  std::auto_ptr<avro::InputStream> in = avro::memoryInputStream(*out);
+  avro::DecoderPtr d = avro::binaryDecoder();
+  d->init(*in);
+
+  c::cpx c2;
+  avro::decode(*d, c2);
+  std::cout << '(' << c2.re << ", " << c2.im << ')' << std::endl;
+*/
+  cout<<"test avro end---------------"<<endl;
   return;
 }
 
