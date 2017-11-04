@@ -1040,6 +1040,13 @@ void test_glog()
   // /usr/lib64/libglog.so        so i add path to cmakefiles.txt
   cout<<"test_glog begin -----------------"<<endl;
   LOG(INFO)<<"hello=====";
+  for(int i=1;i<100;++i) {
+    LOG_EVERY_N(INFO, 16)<<"i = "<<i;  //1 17 33 49 ...
+  }
+  cout<<"++++++++++++++++++"<<endl;
+  for(int i=1;i<100;++i) {
+    LOG_IF_EVERY_N(INFO,(i%5)==0, 3)<<"i = "<<i; //5 20 35 ...
+  }
   cout<<"test_glog end -----------------"<<endl;
 }
 
