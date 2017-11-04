@@ -124,7 +124,7 @@ int main() {
   //test_virtual_method();
   //test_enum();
   //test_json();
-  test_avro();
+  //test_avro();
 //  test_boost_any();
 //  test_explicit();
 //  test_share_ptr_loop();
@@ -133,6 +133,7 @@ int main() {
   //test_lambda();
 //  test_progress_bar();
   //test_istreambuf();
+  test_glog();
   //getchar();
   return 0;
 }

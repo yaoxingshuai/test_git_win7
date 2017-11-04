@@ -1028,3 +1028,19 @@ void test_istreambuf() {
 
   cout<<"------------test istreambuf end------------"<<endl;
 }
+
+#include <glog/logging.h>
+void test_glog()
+{
+  // yum install glog_devel
+  // locate logging.h|grep glog
+  // locate glog |grep '\.so'
+  //
+  // /usr/include/glog/logging.h
+  // /usr/lib64/libglog.so        so i add path to cmakefiles.txt
+  cout<<"test_glog begin -----------------"<<endl;
+  LOG(INFO)<<"hello=====";
+  cout<<"test_glog end -----------------"<<endl;
+}
+
+

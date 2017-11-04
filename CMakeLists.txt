@@ -32,16 +32,21 @@ include_directories(tmpfiles)
 include_directories(my_libfiles)  #弄了个局部动态库
 include_directories(${WORKSPACE}/jsoncpp-src-0.5.0/include)   #json/json.h 头文件的位置
 include_directories(${WORKSPACE}/avro-cpp-1.8.2/include)
+include_directories(/usr/include)
+#include_directories(${WORKSPACE}/third/glog/include)
 
 link_directories(${WORKSPACE}/jsoncpp-src-0.5.0/libs/linux-gcc-4.8.5)  # libjson 库文件的位置
 link_directories(${WORKSPACE}/avro-cpp-1.8.2/lib)
+link_directories(/usr/lib64/)
+#link_directories(${WORKSPACE}/third/glog/lib)
+
 link_directories(${WORKSPACE}/build/my_libfiles)  #这里有my_libfiles产生的.a
 
 
 add_executable(test_git_win7 ${SOURCE_FILES})
 #TARGET_LINK_LIBRARIES(test_git_win7 libjson_linux-gcc-4.8.5_libmt.a libavrocpp_s.a)  #把json.a库编译进来
 target_link_libraries(test_git_win7 libjson_linux-gcc-4.8.5_libmt.a libavrocpp_s.a  #把json.a库编译进来
-  libmy_func.a)
+  libmy_func.a glog) #libglog.a)
 
 add_subdirectory(my_libfiles)
 add_subdirectory(test)
