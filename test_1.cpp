@@ -23,6 +23,8 @@
 
 #include "intro.h"
 #include <functional>
+#include <unordered_map>
+#include <boost/any.hpp>
 using namespace std;
 //
 // Created by stardan on 2017/10/8.
@@ -1050,4 +1052,33 @@ void test_glog()
   cout<<"test_glog end -----------------"<<endl;
 }
 
+void test_map_and_boost_any() {
+  cout<<"test_map_and_boost_any begin------"<<endl;
 
+  unordered_map<int, int> ii_map = {
+      {1, 11},
+      {9, 99},
+  };
+
+  boost::any val = 3;
+  cout<<"any val.type="<<val.type().name()<<endl;
+
+  unordered_map<char, boost::any> char_any_map = {
+      {'a', (const char*)("const char")},  // important: "***" 不能用这个，会被认为是字符串数组, 需要转为const char*
+      {'b', string("string")},
+      {'c', 3},
+      {'d', 4.1},
+      {'e', 5.2f},
+  };
+  for(auto it=char_any_map.begin(); it!=char_any_map.end(); ++it) {
+    cout<<"it->first="<<it->first<<"\t type="<<it->second.type().name()<<endl;
+  }
+  /*
+it->first=e	 type=f     float
+it->first=a	 type=PKc   const char*
+it->first=b	 type=Ss    string
+it->first=c	 type=i     int
+it->first=d	 type=d     double
+   */
+  cout<<"test_map_and_boost_any end------"<<endl;
+}

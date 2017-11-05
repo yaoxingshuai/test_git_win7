@@ -108,6 +108,7 @@ void test_progress_bar(); //测试c++标准进度条
 void test_istreambuf(); //用istreambuf 的iterator读取文件
 
 void test_glog();
+void test_map_and_boost_any();
 #endif //CLION_PRO1_TEST_1_H
 
 

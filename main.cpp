@@ -133,7 +133,8 @@ int main() {
   //test_lambda();
 //  test_progress_bar();
   //test_istreambuf();
-  test_glog();
+  //test_glog();
+  test_map_and_boost_any();
   //getchar();
   return 0;
 }
