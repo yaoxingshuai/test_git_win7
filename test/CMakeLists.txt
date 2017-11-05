@@ -13,5 +13,8 @@ link_directories(${WORKSPACE}/build/my_libfiles/)
 ADD_EXECUTABLE(test_mylib test_mylib.cpp)
 TARGET_LINK_LIBRARIES(test_mylib libmy_func.a)
 
+ADD_EXECUTABLE(test_leetcode test_leetcode.cpp ${WORKSPACE}/my_solution.cpp)
+#TARGET_LINK_LIBRARIES(test_leetcode )
+
 
 message(STATUS "test end+++++++++++")
