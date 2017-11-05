@@ -147,9 +147,22 @@ void lee_show_vec_template(const std::vector<T> &vec, const std::string& split="
 
 void lee_show_vec(const std::vector<int> &vec, const std::string& split="_");
 
+
+struct ListNode {
+  int val;
+  ListNode *next;
+  ListNode(int x) : val(x), next(NULL) {}
+  ListNode(int x, ListNode* node) : val(x), next(node) {}
+};
+
+void lee_show_listnode(ListNode *first);
+
+
 class LeetcodeSolution {
 public:
   std::vector<int> twoSum(std::vector<int>& nums, int target);
+
+  ListNode* addTwoNumbers(ListNode* l1, ListNode* l2);
 };
 
 #endif
