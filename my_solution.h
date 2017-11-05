@@ -136,4 +136,20 @@ enum class WeekDaysClass2 {
 }; //但是enum class 在不同的命名空间下，可以
 
 
-#endif //TEST_GIT_WIN7_MY_SOLUTION_H
+using namespace std;
+// 0 行首 shift 4 行尾
+template<class T>
+void lee_show_vec_template(const std::vector<T> &vec, const std::string& split="_") {
+  for(const int& i: vec)
+    cout<<i<<split;
+  cout<<endl;
+}
+
+void lee_show_vec(const std::vector<int> &vec, const std::string& split="_");
+
+class LeetcodeSolution {
+public:
+  std::vector<int> twoSum(std::vector<int>& nums, int target);
+};
+
+#endif
