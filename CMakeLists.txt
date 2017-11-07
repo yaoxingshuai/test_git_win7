@@ -46,7 +46,9 @@ link_directories(${WORKSPACE}/build/my_libfiles)  #这里有my_libfiles产生的
 add_executable(test_git_win7 ${SOURCE_FILES})
 #TARGET_LINK_LIBRARIES(test_git_win7 libjson_linux-gcc-4.8.5_libmt.a libavrocpp_s.a)  #把json.a库编译进来
 target_link_libraries(test_git_win7 libjson_linux-gcc-4.8.5_libmt.a libavrocpp_s.a  #把json.a库编译进来
-  libmy_func.a glog) #libglog.a)
+        libmy_func.a glog #libglog.a
+        boost_thread
+        )
 
 add_subdirectory(my_libfiles)
 add_subdirectory(test)

@@ -113,6 +113,7 @@ int main() {
 //  test_class_bird();
 //  test_template_public();
   //getchar();
+  test_boost_thread();
   return 0;
 }
 

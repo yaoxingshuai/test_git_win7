@@ -1106,6 +1106,10 @@ void test_class_bird() {
   b1.Name();
 }
 
+
+#include <boost/thread/thread.hpp>    //ps: CmakeLists.txt need   target_link_libraries(boost_thread)
+#include <boost/date_time/posix_time/posix_time.hpp>
+
 void test_template_public() {
   cout << "test_template_public begin-----------" << endl;
   ShowName_1107<TableTennisPlayer> splayername;
@@ -1116,5 +1120,35 @@ void test_template_public() {
   birdname.show_template_name();
   birdname.sing();
 
+  cout << "test_template_public not end-----------" << endl;
+  boost::this_thread::sleep(boost::posix_time::milliseconds(5000));    //sleep 5秒钟
   cout << "test_template_public end-----------" << endl;
+}
+
+void say_out(int a, double b, char c) {
+  cout << "a=" << a << "\t b=" << b << "\t c=" << c << endl;
+}
+
+void test_boost_thread() {
+  cout << "=============test_boost_thread  ----begin" << endl;
+
+  boost::thread mythread(&test_template_public);
+  /*
+test_boost_thread  ----begin
+  test_template_public begin-----------
+    hello: default_fname___default lname
+    hello, bird_name = default bird name
+    hello, bird saying......
+  test_template_public end-----------
+test_boost_thread  ----end
+   */
+
+  cout << "=============waiting thread------------" << endl;
+  mythread.join();   //等待线程结束，如果不加join，如果这个进程先结束了，就看不到线程的输出了
+
+  boost::thread mythread2(boost::bind(&say_out, 1, 2.3, 'x'));   //绑定参数的方法
+  mythread2.join();
+
+
+  cout << "=============test_boost_thread  ----end" << endl;
 }

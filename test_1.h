@@ -118,6 +118,14 @@ void test_mytemplate_1107();
 void test_class_bird();
 
 void test_template_public();  //模板继承
+
+void test_boost_thread();
+
+
+
+
+
+
 #endif //CLION_PRO1_TEST_1_H
 
 
