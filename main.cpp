@@ -134,7 +134,8 @@ int main() {
 //  test_progress_bar();
   //test_istreambuf();
   //test_glog();
-  test_map_and_boost_any();
+  //test_map_and_boost_any();
+  test_mytemplate_1107();
   //getchar();
   return 0;
 }

@@ -40,3 +40,28 @@ public:
 };
 
 #endif //TEST_GIT_WINDOWS_PLAYER_H
+
+
+#ifndef MY_TEMPLATE_1107
+#define MY_TEMPLATE_1107
+
+#include <iostream>
+
+template <class T>
+class Mytemplate_1107 {
+public:
+  T temp_add(const T &a, const T &b);
+  Mytemplate_1107();
+};
+
+#endif
+
+template <class T> Mytemplate_1107<T>::Mytemplate_1107() {
+  std::cout<<"hello, this is constructor of Mytemplate---"<<std::endl;
+}
+
+template <class T> T Mytemplate_1107<T>::temp_add(const T &a, const T &b) {
+  T c = a + b;
+  std::cout<<"add a,b a="<<a<<"\t b="<<b<<",\t sum="<<c<<std::endl;
+  return c;
+}

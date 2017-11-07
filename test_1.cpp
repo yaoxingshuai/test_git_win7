@@ -1082,3 +1082,8 @@ it->first=d	 type=d     double
    */
   cout<<"test_map_and_boost_any end------"<<endl;
 }
+
+void test_mytemplate_1107() {
+  Mytemplate_1107<int> mt;  //既然是模板，必须要说明是int还是说明类型
+  mt.temp_add(3, 5);
+}
