@@ -137,22 +137,25 @@ enum class WeekDaysClass2 {
 
 
 using namespace std;
+
 // 0 行首 shift 4 行尾
 template<class T>
-void lee_show_vec_template(const std::vector<T> &vec, const std::string& split="_") {
-  for(const int& i: vec)
-    cout<<i<<split;
-  cout<<endl;
+void lee_show_vec_template(const std::vector<T> &vec, const std::string &split = "_") {
+  for (const int &i: vec)
+    cout << i << split;
+  cout << endl;
 }
 
-void lee_show_vec(const std::vector<int> &vec, const std::string& split="_");
+void lee_show_vec(const std::vector<int> &vec, const std::string &split = "_");
 
 
 struct ListNode {
   int val;
   ListNode *next;
+
   ListNode(int x) : val(x), next(NULL) {}
-  ListNode(int x, ListNode* node) : val(x), next(node) {}
+
+  ListNode(int x, ListNode *node) : val(x), next(node) {}
 };
 
 void lee_show_listnode(ListNode *first);
@@ -160,9 +163,9 @@ void lee_show_listnode(ListNode *first);
 
 class LeetcodeSolution {
 public:
-  std::vector<int> twoSum(std::vector<int>& nums, int target);
+  std::vector<int> twoSum(std::vector<int> &nums, int target);
 
-  ListNode* addTwoNumbers(ListNode* l1, ListNode* l2);
+  ListNode *addTwoNumbers(ListNode *l1, ListNode *l2);
 };
 
 #endif

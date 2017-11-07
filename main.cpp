@@ -26,43 +26,17 @@ using namespace std;
 
 
 int main() {
-  std::cout << "Hello, World!" << std::endl;
-  vector<int> vec;
-  vec.push_back(1);
-  vec.push_back(2);
-  vec.push_back(3);
 
-  for (auto i : vec)
-    cout << i << "_";
-  cout << endl;
+//  test_string_copy_on_write();
+//  test_my_struct();
+//  test_copy();
+//
+//  estimate(3, test_func1);
+//  estimate(3, test_func2);
+//
+//  test_new_and_delete();
 
-  unordered_map<int, string> map1;
-  map1[1] = string("hello");
-  map1[2] = string("world");
 
-  for (auto iter = map1.begin(); iter != map1.end(); ++iter)
-    cout << iter->first << "_" << iter->second << endl;
-  cout << "------use range instead of for loop-----" << endl;
-  for (auto iter : map1)
-    cout << iter.first << "_" << iter.second << endl;
-
-  test_string_copy_on_write();
-  test_my_struct();
-  test_copy();
-
-  int x = 3, y = 6;
-  my_solution sov;
-  int z = sov.mymax(x, y);
-  cout << "z=" << z << endl;
-
-  estimate(3, test_func1);
-  estimate(3, test_func2);
-
-  test_new_and_delete();
-
-  Show_Solution show_sov;
-  show_sov.show_vec(vec);
-  show_sov.show_vec_template(vec);
   // show_sov.show_vec_template_2(vec);  不知道为什么， 定义和声明都ok，但是调用不可以
   // show_sov.show_vec_template_2<int>(vec);
 
@@ -135,9 +109,9 @@ int main() {
   //test_istreambuf();
   //test_glog();
   //test_map_and_boost_any();
-  test_mytemplate_1107();
-  test_class_bird();
-  test_template_public();
+//  test_mytemplate_1107();
+//  test_class_bird();
+//  test_template_public();
   //getchar();
   return 0;
 }

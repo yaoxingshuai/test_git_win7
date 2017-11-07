@@ -5,7 +5,7 @@
 using namespace std;
 
 void test_leetcode_1() {
-  vector<int> vec{1,2,10, 11, 19};
+  vector<int> vec{1, 2, 10, 11, 19};
   LeetcodeSolution leesove;
   vector<int> ret = leesove.twoSum(vec, 21);
   lee_show_vec_template(ret);
@@ -25,20 +25,20 @@ void test_leedcode_2() {
   lee_show_listnode(n1);
 
   LeetcodeSolution solve;
-  ListNode *ret =  solve.addTwoNumbers(m1, n1);
-  while(ret!= nullptr) {
-    cout<<ret->val<<"_";
+  ListNode *ret = solve.addTwoNumbers(m1, n1);
+  while (ret != nullptr) {
+    cout << ret->val << "_";
     ret = ret->next;
   }
-  cout<<endl;
+  cout << endl;
 }
 
 int main() {
-  cout<<"test leetcode ok"<<endl;
-  cout<<"test leetcode 1----------"<<endl;
+  cout << "test leetcode ok" << endl;
+  cout << "test leetcode 1----------" << endl;
   test_leetcode_1();
-  cout<<"test leetcode 2----------"<<endl;
+  cout << "test leetcode 2----------" << endl;
   test_leedcode_2();
-  cout<<"test leetcode ok end"<<endl;
+  cout << "test leetcode ok end" << endl;
 
 }

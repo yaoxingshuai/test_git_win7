@@ -91,6 +91,7 @@ void test_virtual_method();   //子类必须实现父类的虚函数吗 , 不是
 void test_enum();
 
 void test_avro_decode();
+
 void test_avro();
 
 void test_boost_any();
@@ -101,6 +102,7 @@ void test_share_ptr_loop(); //测试智能制造的循环引用
 void test_share_ptr_loop2(); //测试智能制造的循环引用
 
 void test_bind();
+
 void test_lambda();
 
 void test_progress_bar(); //测试c++标准进度条
@@ -108,10 +110,13 @@ void test_progress_bar(); //测试c++标准进度条
 void test_istreambuf(); //用istreambuf 的iterator读取文件
 
 void test_glog();
+
 void test_map_and_boost_any();
 
 void test_mytemplate_1107();
+
 void test_class_bird();
+
 void test_template_public();  //模板继承
 #endif //CLION_PRO1_TEST_1_H
 

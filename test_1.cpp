@@ -25,6 +25,7 @@
 #include <functional>
 #include <unordered_map>
 #include <boost/any.hpp>
+
 using namespace std;
 //
 // Created by stardan on 2017/10/8.
@@ -786,13 +787,13 @@ void test_avro_decode() {
 }
 
 void test_avro() {
-  cout<<"test avro begin---------------"<<endl;
+  cout << "test avro begin---------------" << endl;
   //std::auto_ptr<avro::OutputStream> out = avro::memoryOutputStream();
   //std::auto_ptr<avro::OutputStream> out = avro::ostreamOutputStream(cerr);
-  
+
   ostringstream oss;
 
-  std::auto_ptr<avro::OutputStream> out = avro::ostreamOutputStream(oss,3);
+  std::auto_ptr<avro::OutputStream> out = avro::ostreamOutputStream(oss, 3);
 
   avro::EncoderPtr e = avro::binaryEncoder();
   e->init(*out);
@@ -801,10 +802,10 @@ void test_avro() {
   c1.im = 2.13;
   avro::encode(*e, c1);
   out->flush();
-  string tmp=oss.str();
-  cout<<"tmp size="<<tmp.size()<<"\n tmp content="<<tmp<<endl;
+  string tmp = oss.str();
+  cout << "tmp size=" << tmp.size() << "\n tmp content=" << tmp << endl;
 
-  std::auto_ptr<avro::InputStream> in = avro::memoryInputStream((const uint8_t*)tmp.c_str(), tmp.size());
+  std::auto_ptr<avro::InputStream> in = avro::memoryInputStream((const uint8_t *) tmp.c_str(), tmp.size());
   avro::DecoderPtr d = avro::binaryDecoder();
   d->init(*in);
   c::cpx c2;
@@ -819,12 +820,12 @@ void test_avro() {
   avro::decode(*d, c2);
   std::cout << '(' << c2.re << ", " << c2.im << ')' << std::endl;
 */
-  cout<<"test avro end---------------"<<endl;
+  cout << "test avro end---------------" << endl;
   return;
 }
 
 void test_boost_any() {
-  boost::any val; 
+  boost::any val;
 }
 
 void test_explicit() {
@@ -867,7 +868,7 @@ myclass_4_explicit x=7
 
 //测试智能制造的循环引用
 void test_share_ptr_loop() {
-  cout<<"---------test shared ptr loop  begin----------------"<<endl;
+  cout << "---------test shared ptr loop  begin----------------" << endl;
   {
     shared_ptr<myclass_4> m4_p = make_shared<myclass_4>(1);
     shared_ptr<myclass_4_explicit> m4_exp_p = make_shared<myclass_4_explicit>(6);
@@ -878,11 +879,11 @@ gouzao myclass_4_explicit, x=6
 ~myclass_4 x=1
      */
   }
-  cout<<"---------test shared ptr loop  end----------------"<<endl;
+  cout << "---------test shared ptr loop  end----------------" << endl;
 }
 
 void test_share_ptr_loop2() {
-  cout<<"---------test shared ptr loop2  begin----------------"<<endl;
+  cout << "---------test shared ptr loop2  begin----------------" << endl;
   {
     shared_ptr<myclass_4> m4_p = make_shared<myclass_4>(1);
     shared_ptr<myclass_4_explicit> m4_exp_p = make_shared<myclass_4_explicit>(6);
@@ -891,7 +892,7 @@ void test_share_ptr_loop2() {
     //impor : 虽然智能制造可以计数并自动释放对象
     //但是两个指针互相指，导致两个都不能析构
   }
-  cout<<"---------test shared ptr loop2  end----------------"<<endl;
+  cout << "---------test shared ptr loop2  end----------------" << endl;
   /*
 ---------test shared ptr loop2  begin----------------
 gouzao myclass_4, x=1
@@ -908,7 +909,7 @@ void test_bind() {
   bb_func(1, 'x', 'y');
 
   //std::function<void(int, char)> bb_func2 = sky_space::bind_a_func(std::placeholders::_1, 
-  auto bb_func2 = std::bind(sky_space::bind_a_func, std::placeholders::_1, 
+  auto bb_func2 = std::bind(sky_space::bind_a_func, std::placeholders::_1,
                             std::placeholders::_2, 'z');
   bb_func2(3, 'c');
 
@@ -941,8 +942,8 @@ a=m  b=m
   myclass_4 mc4(3);
   std::function<void()> b_intro = std::bind(&myclass_4::intro, mc4); //intro 没有参数，后面就不用加参数列表了
   b_intro();
-  
-  cout<<"test --------------- class func bind"<<endl;
+
+  cout << "test --------------- class func bind" << endl;
   std::function<int(int)> get_plus = std::bind(&myclass_4::get_plus, mc4, std::placeholders::_1);
 //  auto get_plus = std::bind(&myclass_4::get_plus, mc4, std::placeholders::_1);
   int pp1 = get_plus(10);
@@ -955,105 +956,114 @@ a=m  b=m
 
 void test_lambda() {
 
-  auto f1 = [](){cout<<"hello, world-------this is lambda"<<endl;};
+  auto f1 = []() { cout << "hello, world-------this is lambda" << endl; };
   f1();
 
-  auto f2 = [](){return 111;};
+  auto f2 = []() { return 111; };
   int a2 = f2();
-  assert(a2==111);
+  assert(a2 == 111);
 
-  auto f3 = [](int a, int b=1){return a+b;};
+  auto f3 = [](int a, int b = 1) { return a + b; };
   int a3_1 = f3(5);
   int a3_2 = f3(9, -3);
-  assert(a3_1==a3_2);
+  assert(a3_1 == a3_2);
 
-  auto say = [=](){cout<<"a3_1="<<a3_1<<endl;};  //[=] 表示使用外部变量，且拷贝一份传入  (外部的都是只读变量，不能赋值)
+  auto say = [=]() { cout << "a3_1=" << a3_1 << endl; };  //[=] 表示使用外部变量，且拷贝一份传入  (外部的都是只读变量，不能赋值)
   say();
-  assert(a3_1==6);
+  assert(a3_1 == 6);
 
-  auto say2 = [&](){a3_1=2000; cout<<"a3_1="<<a3_1<<endl;};
+  auto say2 = [&]() {
+    a3_1 = 2000;
+    cout << "a3_1=" << a3_1 << endl;
+  };
   say2();
-  assert(a3_1==2000);
+  assert(a3_1 == 2000);
 
-  auto say3 = [a3_1, &a3_2](){a3_2=a3_1; cout<<"change a3_2 to a3_1="<<a3_1<<endl;}; //a3_2引用，可以修改  a3_1拷贝，只读
+  auto say3 = [a3_1, &a3_2]() {
+    a3_2 = a3_1;
+    cout << "change a3_2 to a3_1=" << a3_1 << endl;
+  }; //a3_2引用，可以修改  a3_1拷贝，只读
   say3();
-  cout<<"now a3_2="<<a3_2<<"\t a3_1="<<a3_1<<endl;
-  assert(a3_2==a3_1);
-}    
-#include <boost/progress.hpp>  
-#include <fstream>  
-#include <iterator> 
-void test_progress_bar() {
-  cout<<"test_progress_bar -------"<<endl;
-  std::vector<std::string> v(100);  
-  std::ofstream fs("test");  
-  boost::progress_display pd(v.size());  
-  std::vector<std::string>::iterator pos;  
-  for(pos=v.begin();pos!=v.end();++pos) {  
-    fs<<*pos<<std::endl;  
-    ++pd;  
-    sleep(1);  
-    cout<<"hello, world"<<endl;
-  }  
+  cout << "now a3_2=" << a3_2 << "\t a3_1=" << a3_1 << endl;
+  assert(a3_2 == a3_1);
 }
+
+#include <boost/progress.hpp>
+#include <fstream>
+#include <iterator>
+
+void test_progress_bar() {
+  cout << "test_progress_bar -------" << endl;
+  std::vector<std::string> v(100);
+  std::ofstream fs("test");
+  boost::progress_display pd(v.size());
+  std::vector<std::string>::iterator pos;
+  for (pos = v.begin(); pos != v.end(); ++pos) {
+    fs << *pos << std::endl;
+    ++pd;
+    sleep(1);
+    cout << "hello, world" << endl;
+  }
+}
+
 void test_istreambuf() {
-  string filepath="../tmpfiles/kafka_source_schema.json";  
-    //虽然test1.cpp在工程目录下，但是可执行文件在 build目录下,所以../tmpfiles
+  string filepath = "../tmpfiles/kafka_source_schema.json";
+  //虽然test1.cpp在工程目录下，但是可执行文件在 build目录下,所以../tmpfiles
   ifstream conf_ifs(filepath);
   string conf_str((istreambuf_iterator<char>(conf_ifs)), istreambuf_iterator<char>());
-  cout<<"-------------conf_str---------------------"<<endl;
-  cout<<conf_str<<endl;
+  cout << "-------------conf_str---------------------" << endl;
+  cout << conf_str << endl;
 
   Json::Value conf_json;
   Json::Reader reader;
-  if(!reader.parse(conf_str, conf_json)) {
-    cerr<<"json parse error"<<endl;
+  if (!reader.parse(conf_str, conf_json)) {
+    cerr << "json parse error" << endl;
   }
-  cout<<"type="<<conf_json["type"]<<endl;
-  cout<<"type.type="<<typeid(conf_json["type"]).name()<<endl;
-  cout<<"fields.type="<<typeid(conf_json["fields"]).name()<<endl;
-  
+  cout << "type=" << conf_json["type"] << endl;
+  cout << "type.type=" << typeid(conf_json["type"]).name() << endl;
+  cout << "fields.type=" << typeid(conf_json["fields"]).name() << endl;
+
   auto fields_list = conf_json["fields"];
-  cout<<"fields_list size="<<fields_list.size()<<endl;
+  cout << "fields_list size=" << fields_list.size() << endl;
 
   // auto field0 = fields_list[0];  not ok, i dont know why
 
-  for(const auto &field: fields_list) {
-    cout<<"field name="<<field["name"]<<endl;
-    cout<<"field type="<<field["type"]<<endl;
+  for (const auto &field: fields_list) {
+    cout << "field name=" << field["name"] << endl;
+    cout << "field type=" << field["type"] << endl;
   }
-  cout<<"------------------may i cout<<json::value------------\n"<<conf_json<<endl; //可以直接输出json
+  cout << "------------------may i cout<<json::value------------\n" << conf_json << endl; //可以直接输出json
 
   //for(auto iter=field0.begin(); iter!=field0.end(); ++iter) {
   //  cout<<"fffff"<<endl;
   //}
 
-  cout<<"------------test istreambuf end------------"<<endl;
+  cout << "------------test istreambuf end------------" << endl;
 }
 
 #include <glog/logging.h>
-void test_glog()
-{
+
+void test_glog() {
   // yum install glog_devel
   // locate logging.h|grep glog
   // locate glog |grep '\.so'
   //
   // /usr/include/glog/logging.h
   // /usr/lib64/libglog.so        so i add path to cmakefiles.txt
-  cout<<"test_glog begin -----------------"<<endl;
-  LOG(INFO)<<"hello=====";
-  for(int i=1;i<100;++i) {
-    LOG_EVERY_N(INFO, 16)<<"i = "<<i;  //1 17 33 49 ...
+  cout << "test_glog begin -----------------" << endl;
+  LOG(INFO) << "hello=====";
+  for (int i = 1; i < 100; ++i) {
+    LOG_EVERY_N(INFO, 16) << "i = " << i;  //1 17 33 49 ...
   }
-  cout<<"++++++++++++++++++"<<endl;
-  for(int i=1;i<100;++i) {
-    LOG_IF_EVERY_N(INFO,(i%5)==0, 3)<<"i = "<<i; //5 20 35 ...
+  cout << "++++++++++++++++++" << endl;
+  for (int i = 1; i < 100; ++i) {
+    LOG_IF_EVERY_N(INFO, (i % 5) == 0, 3) << "i = " << i; //5 20 35 ...
   }
-  cout<<"test_glog end -----------------"<<endl;
+  cout << "test_glog end -----------------" << endl;
 }
 
 void test_map_and_boost_any() {
-  cout<<"test_map_and_boost_any begin------"<<endl;
+  cout << "test_map_and_boost_any begin------" << endl;
 
   unordered_map<int, int> ii_map = {
       {1, 11},
@@ -1061,17 +1071,17 @@ void test_map_and_boost_any() {
   };
 
   boost::any val = 3;
-  cout<<"any val.type="<<val.type().name()<<endl;
+  cout << "any val.type=" << val.type().name() << endl;
 
   unordered_map<char, boost::any> char_any_map = {
-      {'a', (const char*)("const char")},  // important: "***" 不能用这个，会被认为是字符串数组, 需要转为const char*
+      {'a', (const char *) ("const char")},  // important: "***" 不能用这个，会被认为是字符串数组, 需要转为const char*
       {'b', string("string")},
       {'c', 3},
       {'d', 4.1},
       {'e', 5.2f},
   };
-  for(auto it=char_any_map.begin(); it!=char_any_map.end(); ++it) {
-    cout<<"it->first="<<it->first<<"\t type="<<it->second.type().name()<<endl;
+  for (auto it = char_any_map.begin(); it != char_any_map.end(); ++it) {
+    cout << "it->first=" << it->first << "\t type=" << it->second.type().name() << endl;
   }
   /*
 it->first=e	 type=f     float
@@ -1080,7 +1090,7 @@ it->first=b	 type=Ss    string
 it->first=c	 type=i     int
 it->first=d	 type=d     double
    */
-  cout<<"test_map_and_boost_any end------"<<endl;
+  cout << "test_map_and_boost_any end------" << endl;
 }
 
 void test_mytemplate_1107() {
@@ -1097,7 +1107,7 @@ void test_class_bird() {
 }
 
 void test_template_public() {
-  cout<<"test_template_public begin-----------"<<endl;
+  cout << "test_template_public begin-----------" << endl;
   ShowName_1107<TableTennisPlayer> splayername;
   splayername.Name();
   splayername.HasTable();
@@ -1106,5 +1116,5 @@ void test_template_public() {
   birdname.show_template_name();
   birdname.sing();
 
-  cout<<"test_template_public end-----------"<<endl;
+  cout << "test_template_public end-----------" << endl;
 }

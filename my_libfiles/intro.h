@@ -5,9 +5,9 @@
 
 namespace sky_space {
 
-void intro_test();
+  void intro_test();
 
-void bind_a_func(int x, char a, char b);
+  void bind_a_func(int x, char a, char b);
 }
 
 #endif

@@ -79,24 +79,24 @@ namespace myspace1 {
 class myclass_4_explicit;  //前向声明
 class myclass_4 {
 public:
-  myclass_4(int x): x_(x){
-    std::cout<<"gouzao myclass_4, x="<<x<<std::endl;
+  myclass_4(int x) : x_(x) {
+    std::cout << "gouzao myclass_4, x=" << x << std::endl;
   }
 
   void intro() {
-    std::cout<<"myclass_4 x="<<x_<<std::endl;
+    std::cout << "myclass_4 x=" << x_ << std::endl;
   }
 
   int get_plus(int px) {
-    return x_+px;
-  } 
+    return x_ + px;
+  }
 
   void set_point(std::shared_ptr<myclass_4_explicit> me_exp_p) {
     me_p = me_exp_p;
   }
 
   ~myclass_4() {
-    std::cout<<"~myclass_4 x="<<x_<<std::endl;
+    std::cout << "~myclass_4 x=" << x_ << std::endl;
   }
 
 private:
@@ -106,18 +106,22 @@ private:
 
 class myclass_4_explicit {
 public:
-  explicit myclass_4_explicit(int x): x_(x){
-    std::cout<<"gouzao myclass_4_explicit, x="<<x<<std::endl;
+  explicit myclass_4_explicit(int x) : x_(x) {
+    std::cout << "gouzao myclass_4_explicit, x=" << x << std::endl;
   }
+
   void intro() {
-    std::cout<<"myclass_4_explicit x="<<x_<<std::endl;
+    std::cout << "myclass_4_explicit x=" << x_ << std::endl;
   }
+
   void set_point(std::shared_ptr<myclass_4> me_p) {
     me_exp_p = me_p;
   }
+
   ~myclass_4_explicit() {
-    std::cout<<"~myclass_4_explicit x="<<x_<<std::endl;
+    std::cout << "~myclass_4_explicit x=" << x_ << std::endl;
   }
+
 private:
   int x_;
   std::shared_ptr<myclass_4> me_exp_p;
