@@ -136,6 +136,8 @@ int main() {
   //test_glog();
   //test_map_and_boost_any();
   test_mytemplate_1107();
+  test_class_bird();
+  test_template_public();
   //getchar();
   return 0;
 }

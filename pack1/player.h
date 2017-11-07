@@ -6,6 +6,7 @@
 #define TEST_GIT_WINDOWS_PLAYER_H
 
 #include <string>
+#include <iostream>
 
 using std::string;
 
@@ -39,6 +40,19 @@ public:
   void ResetRating(unsigned int r) { rating = r; }
 };
 
+class Bird {
+private:
+  string bird_name_;
+public:
+  void Name() const {
+    std::cout<<"hello, bird_name = "<<bird_name_<<std::endl;
+  }
+  void sing() const {
+    std::cout<<"hello, bird saying......"<<std::endl;
+  }
+  Bird(const string &bird_name="default bird name"): bird_name_(bird_name) {}
+};
+
 #endif //TEST_GIT_WINDOWS_PLAYER_H
 
 
@@ -54,8 +68,6 @@ public:
   Mytemplate_1107();
 };
 
-#endif
-
 template <class T> Mytemplate_1107<T>::Mytemplate_1107() {
   std::cout<<"hello, this is constructor of Mytemplate---"<<std::endl;
 }
@@ -65,3 +77,18 @@ template <class T> T Mytemplate_1107<T>::temp_add(const T &a, const T &b) {
   std::cout<<"add a,b a="<<a<<"\t b="<<b<<",\t sum="<<c<<std::endl;
   return c;
 }
+
+
+
+// 我试试从带有Name()函数的类模板，使用父类的Name()函数  player::Name(),   Bird::Name()
+template <class NameClass>
+class ShowName_1107: public NameClass {
+public:
+  void show_template_name() {
+    NameClass::Name();
+  }
+};
+
+
+#endif
+

@@ -1087,3 +1087,24 @@ void test_mytemplate_1107() {
   Mytemplate_1107<int> mt;  //既然是模板，必须要说明是int还是说明类型
   mt.temp_add(3, 5);
 }
+
+void test_class_bird() {
+  Bird b1;
+  b1.Name();
+
+  b1 = string("new bee");  //只有一个参数的构造函数，可以隐式转换
+  b1.Name();
+}
+
+void test_template_public() {
+  cout<<"test_template_public begin-----------"<<endl;
+  ShowName_1107<TableTennisPlayer> splayername;
+  splayername.Name();
+  splayername.HasTable();
+
+  ShowName_1107<Bird> birdname;
+  birdname.show_template_name();
+  birdname.sing();
+
+  cout<<"test_template_public end-----------"<<endl;
+}
