@@ -26,4 +26,8 @@ ADD_EXECUTABLE(test_third test_third.cpp)
 target_link_libraries(test_third libavrocpp_s.a  #把json.a库编译进来
         )
 
+ADD_EXECUTABLE(test_boost test_boost.cpp)
+target_link_libraries(test_boost boost_thread
+        boost_system boost_timer)
+
 message(STATUS "test end+++++++++++")

@@ -1,0 +1,14 @@
+- /home/test_cpp/test_git_win7/build git:(master) ✗ >cmake ..
+- /home/test_cpp/test_git_win7/build git:(master) ✗ >cd my_libfiles
+- /home/test_cpp/test_git_win7/build/my_libfiles git:(master) ✗ >make |grep 'Building CXX'
+[ 50%] Building CXX object my_libfiles/CMakeFiles/my_func.dir/intro.cpp.o
+
+- /home/test_cpp/test_git_win7/build/my_libfiles git:(master) ✗ >..
+- /home/test_cpp/test_git_win7/build git:(master) ✗ >make |grep 'Building CXX'
+[  5%] Building CXX object CMakeFiles/test_git_win7.dir/pack1/show.cpp.o
+[ 10%] Building CXX object CMakeFiles/test_git_win7.dir/pack1/mystring.cpp.o
+[ 15%] Building CXX object CMakeFiles/test_git_win7.dir/main.cpp.o
+[ 21%] Building CXX object CMakeFiles/test_git_win7.dir/my_solution.cpp.o
+[ 26%] Building CXX object CMakeFiles/test_git_win7.dir/mystruct.cpp.o
+[ 31%] Building CXX object CMakeFiles/test_git_win7.dir/test_1.cpp.o
+......

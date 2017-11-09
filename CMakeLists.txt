@@ -16,7 +16,6 @@ set(SOURCE_FILES
         pack1/show.h
         pack1/mystring.cpp
         pack1/mystring.h
-        tmpfiles/vimrc
         main.cpp
         makefile
         my_solution.cpp
