@@ -1,0 +1,46 @@
+{
+    "type": "record",
+    "name": "JdwData",
+    "namespace": "com.jd.bdp.jdw.avro",
+    "fields": [
+        {
+            "name": "mid",
+            "type": "long"
+        },
+        {
+            "name": "db",
+            "type": "string"
+        },
+        {
+            "name": "ts",
+            "type": "long"
+        },
+        {
+            "name": "ddl",
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        {
+            "name": "err",
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        {
+            "name": "src",
+            "type": [
+                {
+                    "type": "map",
+                    "values": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "null"
+            ]
+        }
+    ]
+}

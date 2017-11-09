@@ -59,6 +59,11 @@ add_subdirectory(my_libfiles)
 add_subdirectory(test)
 message(STATUS "main end++++++++++")
 
+# - /home/test_cpp/test_git_win7/build git:(master) ✗ >cmake ..
+# - /home/test_cpp/test_git_win7/build/my_libfiles git:(master) ✗ >make    # get libmy_func.a
+# - /home/test_cpp/test_git_win7/build/test git:(master) ✗ >make
+
+
 #  -- main++++++++++
 #  -- /home/test_cpp/test_git_win7-------main workspace
 #  -- mylib++++++++++++++++++

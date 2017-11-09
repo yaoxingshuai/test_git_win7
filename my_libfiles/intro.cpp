@@ -6,6 +6,7 @@ using namespace std;
 
 void sky_space::intro_test() {
   cout << "hello, ------this is mylibfiles.   sky_space::intro_test()" << endl;
+  cout << "hello, test make" << endl;
 }
 
 void sky_space::bind_a_func(int x, char a, char b) {
