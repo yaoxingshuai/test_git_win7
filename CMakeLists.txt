@@ -25,7 +25,6 @@ set(SOURCE_FILES
         mystruct.h
         test_1.cpp
         test_1.h pack1/player.cpp pack1/player.h
-        my_thread.h
         )
 #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O2 -g -pipe -W -Wall -fPIC --std=c++11")
 set(WORKSPACE ${PROJECT_SOURCE_DIR}/./)   #source_dir指的是当前工作目录

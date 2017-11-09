@@ -1153,7 +1153,7 @@ test_boost_thread  ----end
   cout << "=============test_boost_thread  ----end" << endl;
 }
 
-#include "my_thread.h"
+#include "my_thread.h"   // include_directories(my_libfiles)   we can find it in my_libfiles
 
 void test_my_blocking_queue() {
   cout<<"test_my_blocking_queue begin ---"<<endl;
