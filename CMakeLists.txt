@@ -9,6 +9,8 @@ set(CMAKE_VERBOSE_MAKEFILE on)   #输出详细的编译和链接信息
 set(WORKSPACE ${PROJECT_SOURCE_DIR})
 message(STATUS ${WORKSPACE} "-------main workspace")
 
+
+
 set(SOURCE_FILES
         pack1/show.cpp
         pack1/show.h
@@ -22,7 +24,9 @@ set(SOURCE_FILES
         mystruct.cpp
         mystruct.h
         test_1.cpp
-        test_1.h pack1/player.cpp pack1/player.h)
+        test_1.h pack1/player.cpp pack1/player.h
+        my_thread.h
+        )
 #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O2 -g -pipe -W -Wall -fPIC --std=c++11")
 set(WORKSPACE ${PROJECT_SOURCE_DIR}/./)   #source_dir指的是当前工作目录
 
@@ -46,8 +50,10 @@ link_directories(${WORKSPACE}/build/my_libfiles)  #这里有my_libfiles产生的
 add_executable(test_git_win7 ${SOURCE_FILES})
 #TARGET_LINK_LIBRARIES(test_git_win7 libjson_linux-gcc-4.8.5_libmt.a libavrocpp_s.a)  #把json.a库编译进来
 target_link_libraries(test_git_win7 libjson_linux-gcc-4.8.5_libmt.a libavrocpp_s.a  #把json.a库编译进来
-        libmy_func.a glog #libglog.a
+        libmy_func.a   # 需要先到  test_git_win7/build/my_libfiles git:(master) ✗ >make    产生libmy_func.a
+        glog #libglog.a
         boost_thread
+        boost_system boost_timer #对‘boost::timer::cpu_timer::elapsed() const’未定义的引用
         )
 
 add_subdirectory(my_libfiles)

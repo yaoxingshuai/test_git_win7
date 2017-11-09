@@ -988,22 +988,22 @@ void test_lambda() {
   assert(a3_2 == a3_1);
 }
 
-#include <boost/progress.hpp>
+//#include <boost/progress.hpp>     //这个和boost::timer 里面的timer重叠了，所以我把他取消了
 #include <fstream>
 #include <iterator>
 
 void test_progress_bar() {
-  cout << "test_progress_bar -------" << endl;
-  std::vector<std::string> v(100);
-  std::ofstream fs("test");
-  boost::progress_display pd(v.size());
-  std::vector<std::string>::iterator pos;
-  for (pos = v.begin(); pos != v.end(); ++pos) {
-    fs << *pos << std::endl;
-    ++pd;
-    sleep(1);
-    cout << "hello, world" << endl;
-  }
+//  cout << "test_progress_bar -------" << endl;
+//  std::vector<std::string> v(100);
+//  std::ofstream fs("test");
+//  boost::progress_display pd(v.size());
+//  std::vector<std::string>::iterator pos;
+//  for (pos = v.begin(); pos != v.end(); ++pos) {
+//    fs << *pos << std::endl;
+//    ++pd;
+//    sleep(1);
+//    cout << "hello, world" << endl;
+//  }
 }
 
 void test_istreambuf() {
@@ -1151,4 +1151,30 @@ test_boost_thread  ----end
 
 
   cout << "=============test_boost_thread  ----end" << endl;
+}
+
+#include "my_thread.h"
+
+void test_my_blocking_queue() {
+  cout<<"test_my_blocking_queue begin ---"<<endl;
+  mortred::myutil::BlockingQueue<int> myblockque(5);   //size=5
+  myblockque.clear();
+  cout<<"empty?"<<myblockque.empty()<<endl;
+
+  myblockque.put(3);
+  cout<<"size="<<myblockque.size()<<endl;
+
+  int tmp;
+  myblockque.take(tmp);
+  cout<<"take a number="<<tmp<<endl;
+
+  for(int i=1;i<=7;++i) {
+    bool offerOk = myblockque.offer(i, 100);
+    cout<<"offer i="<<i<<"\t ok="<<offerOk<<endl;
+  }
+
+  assert(myblockque.size()==5);
+
+  cout<<"test_my_blocking_queue end ---"<<endl;
+  return;
 }

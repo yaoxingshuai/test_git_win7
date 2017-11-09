@@ -10,4 +10,6 @@ AUX_SOURCE_DIRECTORY(. MYLIBFILES)
 #ADD_LIBRARY(my_func ${MYLIBFILES})
 add_library(my_func ${MYLIBFILES})
 
+message(STATUS ${MYLIBFILES})
+
 message(STATUS "mylib end++++++++++++++++++")
